@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pyzw
+*.pyc
+
+# Virtual Environment
+venv/
+env/
+env.bak/
+env1/
+env2/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*pdf
+*mp4
+*png
+assign2/colour
