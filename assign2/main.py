@@ -20,7 +20,7 @@ def convert_rgb_to_lab(rgb_img, colorspace):
 def plot_ab_coordinates(ax, lab_img, ab_color):
     a_channel = lab_img[:, :, 1]
     b_channel = lab_img[:, :, 2]
-    ax.scatter(a_channel.flatten(), b_channel.flatten(), c=ab_color, marker='.')
+    ax.scatter(a_channel.flatten(), b_channel.flatten(), c=ab_color, marker='D', s=3)
     ax.set_xlabel('a')
     ax.set_ylabel('b')
     ax.set_title('ab coordinates')
