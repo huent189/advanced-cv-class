@@ -10,6 +10,7 @@ pattern_map = {
 class HDRPlus():
     def __init__(self) -> None:
         self.num_levels = 4
+        self.tileSizes = [16, 16, 16, 8]
     def __call__(self, imgs, bayer_pattern):
         self.imgs = imgs
         self.bayer_pattern =pattern_map[bayer_pattern]
@@ -28,22 +29,22 @@ class HDRPlus():
         self.ref_idx = np.argmax(sharpness)
     def sub_pixel_l2_align(self, ref_img, img):
         pass
-    def align(self):
-        # We implement this strategy by averaging
-        # 2×2 blocks of Bayer RGGB samples, so that we align downsampled
-        # 3 Mpix grayscale images instead of 12 Mpix raw images.
-        downsampled_imgs = [img.reshape(img.shape[0] // 2, 2, img.shape[1] // 2, 2).mean(axis=(1, 3)) for img in self.imgs]
-        
-        # we perform a coarse-to-fine alignment on four-level
-        # Gaussian pyramids of the downsampled-to-gray raw input
-        ref_pyramid = compute_gaussian_pyramid(downsampled_imgs[self.ref_idx], self.num_levels)
-        for i in range(len(self.imgs)):
-            if i == self.ref_idx:
-                continue
-            pyr = compute_gaussian_pyramid(downsampled_imgs[i], self.num_levels)
-            for j in range(self.num_levels):
-                # compute the shift between the two images
-                shift = cv2.phaseCorrelate(pyr[j], ref_pyramid[j])
-                # apply the shift to the original raw image
-                M = np.float32([[1, 0, shift[0]], [0, 1, shift[1]]])
-                self.imgs[i] = cv2.warpAffine(self.imgs[i], M, (self.imgs[i].shape[1], self.imgs[i].shape[0]))
+    def pad(self, images, tile_size):
+        h, w = images[0].shape[:2]
+        # if needed, pad images with zeros so that getTiles contains all image pixels
+        paddingPatchesHeight = (tile_size - h % (tile_size)) * (h % (tile_size) != 0)
+        paddingPatchesWidth = (tile_size - w % (tile_size)) * (w % (tile_size) != 0)
+        # additional zero padding to prevent artifacts on image edges due to overlapped patches in each spatial dimension
+        paddingOverlapHeight = paddingOverlapWidth = tile_size // 2
+        # combine the two to get the total padding
+        paddingTop = paddingOverlapHeight
+        paddingBottom = paddingOverlapHeight + paddingPatchesHeight
+        paddingLeft = paddingOverlapWidth
+        paddingRight = paddingOverlapWidth + paddingPatchesWidth
+        # pad all images (by mirroring image edges)
+        imagesPadded = [np.pad(im, ((paddingTop, paddingBottom), (paddingLeft, paddingRight)), 'symmetric') for im in images]
+        return imagesPadded
+    def unpad(self, image, tile_size, h, w):
+        paddingOverlapHeight = paddingOverlapWidth = tile_size // 2
+        return image[paddingOverlapHeight:paddingOverlapHeight+h, paddingOverlapWidth:paddingOverlapWidth+w]
+    
