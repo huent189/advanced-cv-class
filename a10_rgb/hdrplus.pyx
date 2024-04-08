@@ -11,7 +11,7 @@ cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,
     cdef int num_tiles_x = (h - tile_size) // stride + 1
     cdef int thread_idx
     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
-    cdef float max_sim = 1000.0, diff = 0.0
+    cdef float min_diff = 1000.0, diff = 0.0
     for thread_idx in prange(num_tiles_x):
         min_diff = 1000.0
         i = thread_idx * stride
