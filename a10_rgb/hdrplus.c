@@ -2760,7 +2760,9 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
+static void __pyx_f_7hdrplus_align_image_cosin(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int, int, int, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
 static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int, int, int, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
+static void __pyx_f_7hdrplus_align_image_l2(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int, int, int, int, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
 static void __pyx_f_7hdrplus_align_and_merge_2im(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch); /*proto*/
 static int __pyx_array_allocate_buffer(struct __pyx_array_obj *); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
@@ -2829,7 +2831,7 @@ static const char __pyx_k__7[] = ")";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
-static const char __pyx_k__24[] = "?";
+static const char __pyx_k__26[] = "?";
 static const char __pyx_k_abc[] = "abc";
 static const char __pyx_k_and[] = " and ";
 static const char __pyx_k_cv2[] = "cv2";
@@ -2919,12 +2921,14 @@ static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_search_radius[] = "search_radius";
 static const char __pyx_k_AssertionError[] = "AssertionError";
 static const char __pyx_k_align_image_l1[] = "align_image_l1";
+static const char __pyx_k_align_image_l2[] = "align_image_l2";
 static const char __pyx_k_View_MemoryView[] = "View.MemoryView";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
 static const char __pyx_k_collections_abc[] = "collections.abc";
 static const char __pyx_k_dtype_is_object[] = "dtype_is_object";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_align_image_cosin[] = "align_image_cosin";
 static const char __pyx_k_pyx_unpickle_Enum[] = "__pyx_unpickle_Enum";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -3000,8 +3004,10 @@ static void __pyx_memoryviewslice___pyx_pf_15View_dot_MemoryView_16_memoryviewsl
 static PyObject *__pyx_pf___pyx_memoryviewslice___reduce_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf___pyx_memoryviewslice_2__setstate_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_15View_dot_MemoryView___pyx_unpickle_Enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_7hdrplus_align_image_l1(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map); /* proto */
-static PyObject *__pyx_pf_7hdrplus_2align_and_merge_2im(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_comp_feature, __Pyx_memviewslice __pyx_v_ref_feature, __Pyx_memviewslice __pyx_v_comp_input, __Pyx_memviewslice __pyx_v_comp_output, __Pyx_memviewslice __pyx_v_pyr_h, __Pyx_memviewslice __pyx_v_pyr_w); /* proto */
+static PyObject *__pyx_pf_7hdrplus_align_image_cosin(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map); /* proto */
+static PyObject *__pyx_pf_7hdrplus_2align_image_l1(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map); /* proto */
+static PyObject *__pyx_pf_7hdrplus_4align_image_l2(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map); /* proto */
+static PyObject *__pyx_pf_7hdrplus_6align_and_merge_2im(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_comp_feature, __Pyx_memviewslice __pyx_v_ref_feature, __Pyx_memviewslice __pyx_v_comp_input, __Pyx_memviewslice __pyx_v_comp_output, __Pyx_memviewslice __pyx_v_pyr_h, __Pyx_memviewslice __pyx_v_pyr_w); /* proto */
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -3085,13 +3091,15 @@ typedef struct {
   PyObject *__pyx_n_s_ValueError;
   PyObject *__pyx_n_s_View_MemoryView;
   PyObject *__pyx_kp_u__2;
-  PyObject *__pyx_n_s__24;
+  PyObject *__pyx_n_s__26;
   PyObject *__pyx_n_s__3;
   PyObject *__pyx_kp_u__6;
   PyObject *__pyx_kp_u__7;
   PyObject *__pyx_n_s_abc;
   PyObject *__pyx_n_s_align_and_merge_2im;
+  PyObject *__pyx_n_s_align_image_cosin;
   PyObject *__pyx_n_s_align_image_l1;
+  PyObject *__pyx_n_s_align_image_l2;
   PyObject *__pyx_n_s_allocate_buffer;
   PyObject *__pyx_kp_u_and;
   PyObject *__pyx_n_s_asyncio_coroutines;
@@ -3218,10 +3226,12 @@ typedef struct {
   PyObject *__pyx_tuple__17;
   PyObject *__pyx_tuple__18;
   PyObject *__pyx_tuple__20;
-  PyObject *__pyx_tuple__22;
+  PyObject *__pyx_tuple__24;
   PyObject *__pyx_codeobj__19;
   PyObject *__pyx_codeobj__21;
+  PyObject *__pyx_codeobj__22;
   PyObject *__pyx_codeobj__23;
+  PyObject *__pyx_codeobj__25;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -3304,13 +3314,15 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_ValueError);
   Py_CLEAR(clear_module_state->__pyx_n_s_View_MemoryView);
   Py_CLEAR(clear_module_state->__pyx_kp_u__2);
-  Py_CLEAR(clear_module_state->__pyx_n_s__24);
+  Py_CLEAR(clear_module_state->__pyx_n_s__26);
   Py_CLEAR(clear_module_state->__pyx_n_s__3);
   Py_CLEAR(clear_module_state->__pyx_kp_u__6);
   Py_CLEAR(clear_module_state->__pyx_kp_u__7);
   Py_CLEAR(clear_module_state->__pyx_n_s_abc);
   Py_CLEAR(clear_module_state->__pyx_n_s_align_and_merge_2im);
+  Py_CLEAR(clear_module_state->__pyx_n_s_align_image_cosin);
   Py_CLEAR(clear_module_state->__pyx_n_s_align_image_l1);
+  Py_CLEAR(clear_module_state->__pyx_n_s_align_image_l2);
   Py_CLEAR(clear_module_state->__pyx_n_s_allocate_buffer);
   Py_CLEAR(clear_module_state->__pyx_kp_u_and);
   Py_CLEAR(clear_module_state->__pyx_n_s_asyncio_coroutines);
@@ -3437,10 +3449,12 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_tuple__17);
   Py_CLEAR(clear_module_state->__pyx_tuple__18);
   Py_CLEAR(clear_module_state->__pyx_tuple__20);
-  Py_CLEAR(clear_module_state->__pyx_tuple__22);
+  Py_CLEAR(clear_module_state->__pyx_tuple__24);
   Py_CLEAR(clear_module_state->__pyx_codeobj__19);
   Py_CLEAR(clear_module_state->__pyx_codeobj__21);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__22);
   Py_CLEAR(clear_module_state->__pyx_codeobj__23);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__25);
   return 0;
 }
 #endif
@@ -3501,13 +3515,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_ValueError);
   Py_VISIT(traverse_module_state->__pyx_n_s_View_MemoryView);
   Py_VISIT(traverse_module_state->__pyx_kp_u__2);
-  Py_VISIT(traverse_module_state->__pyx_n_s__24);
+  Py_VISIT(traverse_module_state->__pyx_n_s__26);
   Py_VISIT(traverse_module_state->__pyx_n_s__3);
   Py_VISIT(traverse_module_state->__pyx_kp_u__6);
   Py_VISIT(traverse_module_state->__pyx_kp_u__7);
   Py_VISIT(traverse_module_state->__pyx_n_s_abc);
   Py_VISIT(traverse_module_state->__pyx_n_s_align_and_merge_2im);
+  Py_VISIT(traverse_module_state->__pyx_n_s_align_image_cosin);
   Py_VISIT(traverse_module_state->__pyx_n_s_align_image_l1);
+  Py_VISIT(traverse_module_state->__pyx_n_s_align_image_l2);
   Py_VISIT(traverse_module_state->__pyx_n_s_allocate_buffer);
   Py_VISIT(traverse_module_state->__pyx_kp_u_and);
   Py_VISIT(traverse_module_state->__pyx_n_s_asyncio_coroutines);
@@ -3634,10 +3650,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_tuple__17);
   Py_VISIT(traverse_module_state->__pyx_tuple__18);
   Py_VISIT(traverse_module_state->__pyx_tuple__20);
-  Py_VISIT(traverse_module_state->__pyx_tuple__22);
+  Py_VISIT(traverse_module_state->__pyx_tuple__24);
   Py_VISIT(traverse_module_state->__pyx_codeobj__19);
   Py_VISIT(traverse_module_state->__pyx_codeobj__21);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__22);
   Py_VISIT(traverse_module_state->__pyx_codeobj__23);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__25);
   return 0;
 }
 #endif
@@ -3718,13 +3736,15 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_ValueError __pyx_mstate_global->__pyx_n_s_ValueError
 #define __pyx_n_s_View_MemoryView __pyx_mstate_global->__pyx_n_s_View_MemoryView
 #define __pyx_kp_u__2 __pyx_mstate_global->__pyx_kp_u__2
-#define __pyx_n_s__24 __pyx_mstate_global->__pyx_n_s__24
+#define __pyx_n_s__26 __pyx_mstate_global->__pyx_n_s__26
 #define __pyx_n_s__3 __pyx_mstate_global->__pyx_n_s__3
 #define __pyx_kp_u__6 __pyx_mstate_global->__pyx_kp_u__6
 #define __pyx_kp_u__7 __pyx_mstate_global->__pyx_kp_u__7
 #define __pyx_n_s_abc __pyx_mstate_global->__pyx_n_s_abc
 #define __pyx_n_s_align_and_merge_2im __pyx_mstate_global->__pyx_n_s_align_and_merge_2im
+#define __pyx_n_s_align_image_cosin __pyx_mstate_global->__pyx_n_s_align_image_cosin
 #define __pyx_n_s_align_image_l1 __pyx_mstate_global->__pyx_n_s_align_image_l1
+#define __pyx_n_s_align_image_l2 __pyx_mstate_global->__pyx_n_s_align_image_l2
 #define __pyx_n_s_allocate_buffer __pyx_mstate_global->__pyx_n_s_allocate_buffer
 #define __pyx_kp_u_and __pyx_mstate_global->__pyx_kp_u_and
 #define __pyx_n_s_asyncio_coroutines __pyx_mstate_global->__pyx_n_s_asyncio_coroutines
@@ -3851,10 +3871,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_tuple__17 __pyx_mstate_global->__pyx_tuple__17
 #define __pyx_tuple__18 __pyx_mstate_global->__pyx_tuple__18
 #define __pyx_tuple__20 __pyx_mstate_global->__pyx_tuple__20
-#define __pyx_tuple__22 __pyx_mstate_global->__pyx_tuple__22
+#define __pyx_tuple__24 __pyx_mstate_global->__pyx_tuple__24
 #define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
 #define __pyx_codeobj__21 __pyx_mstate_global->__pyx_codeobj__21
+#define __pyx_codeobj__22 __pyx_mstate_global->__pyx_codeobj__22
 #define __pyx_codeobj__23 __pyx_mstate_global->__pyx_codeobj__23
+#define __pyx_codeobj__25 __pyx_mstate_global->__pyx_codeobj__25
 /* #### Code section: module_code ### */
 
 /* "View.MemoryView":131
@@ -17486,12 +17508,1002 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
 /* "hdrplus.pyx":9
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
+ * cpdef void align_image_cosin(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ */
+
+static PyObject *__pyx_pw_7hdrplus_1align_image_cosin(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static void __pyx_f_7hdrplus_align_image_cosin(__Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map, CYTHON_UNUSED int __pyx_skip_dispatch) {
+  int __pyx_v_stride;
+  CYTHON_UNUSED int __pyx_v_num_tiles_x;
+  int __pyx_v_thread_idx;
+  int __pyx_v_best_dx;
+  int __pyx_v_best_dy;
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_cim_x;
+  int __pyx_v_cim_y;
+  int __pyx_v_dx;
+  int __pyx_v_dy;
+  int __pyx_v_x;
+  int __pyx_v_y;
+  float __pyx_v_max_sim;
+  float __pyx_v_corr;
+  float __pyx_v_sq_sum;
+  float __pyx_v_sq_sum_ref;
+  float __pyx_v_sim;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  int __pyx_t_7;
+  int __pyx_t_8;
+  Py_ssize_t __pyx_t_9;
+  Py_ssize_t __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  int __pyx_t_12;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  int __pyx_t_15;
+  int __pyx_t_16;
+  int __pyx_t_17;
+  int __pyx_t_18;
+  Py_ssize_t __pyx_t_19;
+  double __pyx_t_20;
+  Py_ssize_t __pyx_t_21;
+  Py_ssize_t __pyx_t_22;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  #ifdef WITH_THREAD
+  PyGILState_STATE __pyx_gilstate_save;
+  #endif
+  __Pyx_RefNannySetupContext("align_image_cosin", 1);
+
+  /* "hdrplus.pyx":10
+ * @cython.wraparound(False)
+ * cpdef void align_image_cosin(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:
+ *     cdef int stride = tile_size // 2             # <<<<<<<<<<<<<<
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ *     cdef int thread_idx
+ */
+  __pyx_v_stride = __Pyx_div_long(__pyx_v_tile_size, 2);
+
+  /* "hdrplus.pyx":11
+ * cpdef void align_image_cosin(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1             # <<<<<<<<<<<<<<
+ *     cdef int thread_idx
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ */
+  __pyx_t_1 = (__pyx_v_h - __pyx_v_tile_size);
+  if (unlikely(__pyx_v_stride == 0)) {
+    #ifdef WITH_THREAD
+    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+    #endif
+    PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
+    #ifdef WITH_THREAD
+    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+    #endif
+    __PYX_ERR(0, 11, __pyx_L1_error)
+  }
+  else if (sizeof(int) == sizeof(long) && (!(((int)-1) > 0)) && unlikely(__pyx_v_stride == (int)-1)  && unlikely(__Pyx_UNARY_NEG_WOULD_OVERFLOW(__pyx_t_1))) {
+    #ifdef WITH_THREAD
+    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+    #endif
+    PyErr_SetString(PyExc_OverflowError, "value too large to perform division");
+    #ifdef WITH_THREAD
+    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+    #endif
+    __PYX_ERR(0, 11, __pyx_L1_error)
+  }
+  __pyx_v_num_tiles_x = (__Pyx_div_int(__pyx_t_1, __pyx_v_stride) + 1);
+
+  /* "hdrplus.pyx":14
+ *     cdef int thread_idx
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ *     cdef float max_sim = -1, corr = 0.0, sq_sum = 0.0, sq_sum_ref = 0.0, sim = 0.0             # <<<<<<<<<<<<<<
+ *     for thread_idx in prange(num_tiles_x):
+ *         max_sim = -1
+ */
+  __pyx_v_max_sim = -1.0;
+  __pyx_v_corr = 0.0;
+  __pyx_v_sq_sum = 0.0;
+  __pyx_v_sq_sum_ref = 0.0;
+  __pyx_v_sim = 0.0;
+
+  /* "hdrplus.pyx":15
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ *     cdef float max_sim = -1, corr = 0.0, sq_sum = 0.0, sq_sum_ref = 0.0, sim = 0.0
+ *     for thread_idx in prange(num_tiles_x):             # <<<<<<<<<<<<<<
+ *         max_sim = -1
+ *         i = thread_idx * stride
+ */
+  {
+      #ifdef WITH_THREAD
+      PyThreadState *_save;
+      _save = NULL;
+      if (PyGILState_Check()) {
+        Py_UNBLOCK_THREADS
+      }
+      __Pyx_FastGIL_Remember();
+      #endif
+      /*try:*/ {
+        __pyx_t_1 = __pyx_v_num_tiles_x;
+        {
+            int __pyx_parallel_temp0 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp1 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp2 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp3 = ((int)0xbad0bad0);
+            float __pyx_parallel_temp4 = ((float)__PYX_NAN());
+            int __pyx_parallel_temp5 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp6 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp7 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp8 = ((int)0xbad0bad0);
+            float __pyx_parallel_temp9 = ((float)__PYX_NAN());
+            float __pyx_parallel_temp10 = ((float)__PYX_NAN());
+            float __pyx_parallel_temp11 = ((float)__PYX_NAN());
+            float __pyx_parallel_temp12 = ((float)__PYX_NAN());
+            int __pyx_parallel_temp13 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp14 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp15 = ((int)0xbad0bad0);
+            const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
+            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            int __pyx_parallel_why;
+            __pyx_parallel_why = 0;
+            #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+                #undef likely
+                #undef unlikely
+                #define likely(x)   (x)
+                #define unlikely(x) (x)
+            #endif
+            __pyx_t_3 = (__pyx_t_1 - 0 + 1 - 1/abs(1)) / 1;
+            if (__pyx_t_3 > 0)
+            {
+                #ifdef _OPENMP
+                #pragma omp parallel private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_15, __pyx_t_16, __pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_22, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7, __pyx_t_8, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #endif /* _OPENMP */
+                {
+                    #ifdef _OPENMP
+                    #ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    Py_BEGIN_ALLOW_THREADS
+                    #endif /* _OPENMP */
+                    #ifdef _OPENMP
+                    #pragma omp for lastprivate(__pyx_v_best_dx) lastprivate(__pyx_v_best_dy) lastprivate(__pyx_v_cim_x) lastprivate(__pyx_v_cim_y) lastprivate(__pyx_v_corr) lastprivate(__pyx_v_dx) lastprivate(__pyx_v_dy) lastprivate(__pyx_v_i) lastprivate(__pyx_v_j) lastprivate(__pyx_v_max_sim) lastprivate(__pyx_v_sim) lastprivate(__pyx_v_sq_sum) lastprivate(__pyx_v_sq_sum_ref) firstprivate(__pyx_v_thread_idx) lastprivate(__pyx_v_thread_idx) lastprivate(__pyx_v_x) lastprivate(__pyx_v_y)
+                    #endif /* _OPENMP */
+                    for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_3; __pyx_t_2++){
+                        if (__pyx_parallel_why < 2)
+                        {
+                            __pyx_v_thread_idx = (int)(0 + 1 * __pyx_t_2);
+                            /* Initialize private variables to invalid values */
+                            __pyx_v_best_dx = ((int)0xbad0bad0);
+                            __pyx_v_best_dy = ((int)0xbad0bad0);
+                            __pyx_v_cim_x = ((int)0xbad0bad0);
+                            __pyx_v_cim_y = ((int)0xbad0bad0);
+                            __pyx_v_corr = ((float)__PYX_NAN());
+                            __pyx_v_dx = ((int)0xbad0bad0);
+                            __pyx_v_dy = ((int)0xbad0bad0);
+                            __pyx_v_i = ((int)0xbad0bad0);
+                            __pyx_v_j = ((int)0xbad0bad0);
+                            __pyx_v_max_sim = ((float)__PYX_NAN());
+                            __pyx_v_sim = ((float)__PYX_NAN());
+                            __pyx_v_sq_sum = ((float)__PYX_NAN());
+                            __pyx_v_sq_sum_ref = ((float)__PYX_NAN());
+                            __pyx_v_x = ((int)0xbad0bad0);
+                            __pyx_v_y = ((int)0xbad0bad0);
+
+                            /* "hdrplus.pyx":16
+ *     cdef float max_sim = -1, corr = 0.0, sq_sum = 0.0, sq_sum_ref = 0.0, sim = 0.0
+ *     for thread_idx in prange(num_tiles_x):
+ *         max_sim = -1             # <<<<<<<<<<<<<<
+ *         i = thread_idx * stride
+ *         for j from 0 <= j < w by stride:
+ */
+                            __pyx_v_max_sim = -1.0;
+
+                            /* "hdrplus.pyx":17
+ *     for thread_idx in prange(num_tiles_x):
+ *         max_sim = -1
+ *         i = thread_idx * stride             # <<<<<<<<<<<<<<
+ *         for j from 0 <= j < w by stride:
+ *             max_sim = -1
+ */
+                            __pyx_v_i = (__pyx_v_thread_idx * __pyx_v_stride);
+
+                            /* "hdrplus.pyx":18
+ *         max_sim = -1
+ *         i = thread_idx * stride
+ *         for j from 0 <= j < w by stride:             # <<<<<<<<<<<<<<
+ *             max_sim = -1
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ */
+                            __pyx_t_4 = __pyx_v_w;
+                            __pyx_t_5 = __pyx_v_stride;
+                            for (__pyx_v_j = 0; __pyx_v_j < __pyx_t_4; __pyx_v_j+=__pyx_t_5) {
+
+                              /* "hdrplus.pyx":19
+ *         i = thread_idx * stride
+ *         for j from 0 <= j < w by stride:
+ *             max_sim = -1             # <<<<<<<<<<<<<<
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ */
+                              __pyx_v_max_sim = -1.0;
+
+                              /* "hdrplus.pyx":20
+ *         for j from 0 <= j < w by stride:
+ *             max_sim = -1
+ *             for dx from -search_radius <= dx < search_radius by 1:             # <<<<<<<<<<<<<<
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ */
+                              __pyx_t_6 = __pyx_v_search_radius;
+                              for (__pyx_v_dx = (-__pyx_v_search_radius); __pyx_v_dx < __pyx_t_6; __pyx_v_dx+=1) {
+
+                                /* "hdrplus.pyx":21
+ *             max_sim = -1
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:             # <<<<<<<<<<<<<<
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ *                         continue
+ */
+                                __pyx_t_7 = __pyx_v_search_radius;
+                                for (__pyx_v_dy = (-__pyx_v_search_radius); __pyx_v_dy < __pyx_t_7; __pyx_v_dy+=1) {
+
+                                  /* "hdrplus.pyx":22
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:             # <<<<<<<<<<<<<<
+ *                         continue
+ *                     corr = 0.0
+ */
+                                  __pyx_t_9 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_11 = 0;
+                                  __pyx_t_12 = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_i) + __pyx_v_dx) < 0);
+                                  if (!__pyx_t_12) {
+                                  } else {
+                                    __pyx_t_8 = __pyx_t_12;
+                                    goto __pyx_L17_bool_binop_done;
+                                  }
+                                  __pyx_t_11 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_9 = 0;
+                                  __pyx_t_12 = (((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dx) + __pyx_v_i) + __pyx_v_tile_size) >= __pyx_v_h);
+                                  if (!__pyx_t_12) {
+                                  } else {
+                                    __pyx_t_8 = __pyx_t_12;
+                                    goto __pyx_L17_bool_binop_done;
+                                  }
+                                  __pyx_t_9 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_11 = 1;
+                                  __pyx_t_12 = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_j) + __pyx_v_dy) < 0);
+                                  if (!__pyx_t_12) {
+                                  } else {
+                                    __pyx_t_8 = __pyx_t_12;
+                                    goto __pyx_L17_bool_binop_done;
+                                  }
+                                  __pyx_t_11 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_9 = 1;
+                                  __pyx_t_12 = (((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dy) + __pyx_v_j) + __pyx_v_tile_size) >= __pyx_v_w);
+                                  __pyx_t_8 = __pyx_t_12;
+                                  __pyx_L17_bool_binop_done:;
+                                  if (__pyx_t_8) {
+
+                                    /* "hdrplus.pyx":23
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ *                         continue             # <<<<<<<<<<<<<<
+ *                     corr = 0.0
+ *                     sq_sum = 0.0
+ */
+                                    goto __pyx_L14_continue;
+
+                                    /* "hdrplus.pyx":22
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:             # <<<<<<<<<<<<<<
+ *                         continue
+ *                     corr = 0.0
+ */
+                                  }
+
+                                  /* "hdrplus.pyx":24
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ *                         continue
+ *                     corr = 0.0             # <<<<<<<<<<<<<<
+ *                     sq_sum = 0.0
+ *                     sq_sum_ref = 0.0
+ */
+                                  __pyx_v_corr = 0.0;
+
+                                  /* "hdrplus.pyx":25
+ *                         continue
+ *                     corr = 0.0
+ *                     sq_sum = 0.0             # <<<<<<<<<<<<<<
+ *                     sq_sum_ref = 0.0
+ *                     for x in range(tile_size):
+ */
+                                  __pyx_v_sq_sum = 0.0;
+
+                                  /* "hdrplus.pyx":26
+ *                     corr = 0.0
+ *                     sq_sum = 0.0
+ *                     sq_sum_ref = 0.0             # <<<<<<<<<<<<<<
+ *                     for x in range(tile_size):
+ *                         for y in range(tile_size):
+ */
+                                  __pyx_v_sq_sum_ref = 0.0;
+
+                                  /* "hdrplus.pyx":27
+ *                     sq_sum = 0.0
+ *                     sq_sum_ref = 0.0
+ *                     for x in range(tile_size):             # <<<<<<<<<<<<<<
+ *                         for y in range(tile_size):
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ */
+                                  __pyx_t_13 = __pyx_v_tile_size;
+                                  __pyx_t_14 = __pyx_t_13;
+                                  for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
+                                    __pyx_v_x = __pyx_t_15;
+
+                                    /* "hdrplus.pyx":28
+ *                     sq_sum_ref = 0.0
+ *                     for x in range(tile_size):
+ *                         for y in range(tile_size):             # <<<<<<<<<<<<<<
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ */
+                                    __pyx_t_16 = __pyx_v_tile_size;
+                                    __pyx_t_17 = __pyx_t_16;
+                                    for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
+                                      __pyx_v_y = __pyx_t_18;
+
+                                      /* "hdrplus.pyx":29
+ *                     for x in range(tile_size):
+ *                         for y in range(tile_size):
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i             # <<<<<<<<<<<<<<
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             corr = corr + ref_im[i + x, j + y] * comp_im[cim_x, cim_y]
+ */
+                                      __pyx_t_9 = __pyx_v_i;
+                                      __pyx_t_10 = __pyx_v_j;
+                                      __pyx_t_11 = 0;
+                                      __pyx_v_cim_x = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dx) + __pyx_v_x) + __pyx_v_i);
+
+                                      /* "hdrplus.pyx":30
+ *                         for y in range(tile_size):
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j             # <<<<<<<<<<<<<<
+ *                             corr = corr + ref_im[i + x, j + y] * comp_im[cim_x, cim_y]
+ *                             sq_sum = sq_sum + comp_im[cim_x, cim_y] * comp_im[cim_x, cim_y]
+ */
+                                      __pyx_t_11 = __pyx_v_i;
+                                      __pyx_t_10 = __pyx_v_j;
+                                      __pyx_t_9 = 1;
+                                      __pyx_v_cim_y = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dy) + __pyx_v_y) + __pyx_v_j);
+
+                                      /* "hdrplus.pyx":31
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             corr = corr + ref_im[i + x, j + y] * comp_im[cim_x, cim_y]             # <<<<<<<<<<<<<<
+ *                             sq_sum = sq_sum + comp_im[cim_x, cim_y] * comp_im[cim_x, cim_y]
+ *                             sq_sum_ref = sq_sum_ref + ref_im[i + x, j + y] * ref_im[i + x, j + y]
+ */
+                                      __pyx_t_9 = (__pyx_v_i + __pyx_v_x);
+                                      __pyx_t_10 = (__pyx_v_j + __pyx_v_y);
+                                      __pyx_t_11 = __pyx_v_cim_x;
+                                      __pyx_t_19 = __pyx_v_cim_y;
+                                      __pyx_v_corr = (__pyx_v_corr + ((*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_ref_im.data + __pyx_t_9 * __pyx_v_ref_im.strides[0]) ) + __pyx_t_10 * __pyx_v_ref_im.strides[1]) ))) * (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_im.data + __pyx_t_11 * __pyx_v_comp_im.strides[0]) ) + __pyx_t_19 * __pyx_v_comp_im.strides[1]) )))));
+
+                                      /* "hdrplus.pyx":32
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             corr = corr + ref_im[i + x, j + y] * comp_im[cim_x, cim_y]
+ *                             sq_sum = sq_sum + comp_im[cim_x, cim_y] * comp_im[cim_x, cim_y]             # <<<<<<<<<<<<<<
+ *                             sq_sum_ref = sq_sum_ref + ref_im[i + x, j + y] * ref_im[i + x, j + y]
+ *                     sim = corr / (sqrt(sq_sum) * sqrt(sq_sum_ref) + 1e-3)
+ */
+                                      __pyx_t_19 = __pyx_v_cim_x;
+                                      __pyx_t_11 = __pyx_v_cim_y;
+                                      __pyx_t_10 = __pyx_v_cim_x;
+                                      __pyx_t_9 = __pyx_v_cim_y;
+                                      __pyx_v_sq_sum = (__pyx_v_sq_sum + ((*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_im.data + __pyx_t_19 * __pyx_v_comp_im.strides[0]) ) + __pyx_t_11 * __pyx_v_comp_im.strides[1]) ))) * (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_im.data + __pyx_t_10 * __pyx_v_comp_im.strides[0]) ) + __pyx_t_9 * __pyx_v_comp_im.strides[1]) )))));
+
+                                      /* "hdrplus.pyx":33
+ *                             corr = corr + ref_im[i + x, j + y] * comp_im[cim_x, cim_y]
+ *                             sq_sum = sq_sum + comp_im[cim_x, cim_y] * comp_im[cim_x, cim_y]
+ *                             sq_sum_ref = sq_sum_ref + ref_im[i + x, j + y] * ref_im[i + x, j + y]             # <<<<<<<<<<<<<<
+ *                     sim = corr / (sqrt(sq_sum) * sqrt(sq_sum_ref) + 1e-3)
+ *                     if sim > max_sim:
+ */
+                                      __pyx_t_9 = (__pyx_v_i + __pyx_v_x);
+                                      __pyx_t_10 = (__pyx_v_j + __pyx_v_y);
+                                      __pyx_t_11 = (__pyx_v_i + __pyx_v_x);
+                                      __pyx_t_19 = (__pyx_v_j + __pyx_v_y);
+                                      __pyx_v_sq_sum_ref = (__pyx_v_sq_sum_ref + ((*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_ref_im.data + __pyx_t_9 * __pyx_v_ref_im.strides[0]) ) + __pyx_t_10 * __pyx_v_ref_im.strides[1]) ))) * (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_ref_im.data + __pyx_t_11 * __pyx_v_ref_im.strides[0]) ) + __pyx_t_19 * __pyx_v_ref_im.strides[1]) )))));
+                                    }
+                                  }
+
+                                  /* "hdrplus.pyx":34
+ *                             sq_sum = sq_sum + comp_im[cim_x, cim_y] * comp_im[cim_x, cim_y]
+ *                             sq_sum_ref = sq_sum_ref + ref_im[i + x, j + y] * ref_im[i + x, j + y]
+ *                     sim = corr / (sqrt(sq_sum) * sqrt(sq_sum_ref) + 1e-3)             # <<<<<<<<<<<<<<
+ *                     if sim > max_sim:
+ *                         max_sim = sim
+ */
+                                  __pyx_t_20 = ((sqrt(__pyx_v_sq_sum) * sqrt(__pyx_v_sq_sum_ref)) + 1e-3);
+                                  if (unlikely(__pyx_t_20 == 0)) {
+                                    #ifdef WITH_THREAD
+                                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                                    #endif
+                                    PyErr_SetString(PyExc_ZeroDivisionError, "float division");
+                                    #ifdef WITH_THREAD
+                                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                                    #endif
+                                    __PYX_ERR(0, 34, __pyx_L8_error)
+                                  }
+                                  __pyx_v_sim = (((double)__pyx_v_corr) / __pyx_t_20);
+
+                                  /* "hdrplus.pyx":35
+ *                             sq_sum_ref = sq_sum_ref + ref_im[i + x, j + y] * ref_im[i + x, j + y]
+ *                     sim = corr / (sqrt(sq_sum) * sqrt(sq_sum_ref) + 1e-3)
+ *                     if sim > max_sim:             # <<<<<<<<<<<<<<
+ *                         max_sim = sim
+ *                         best_dx = dx
+ */
+                                  __pyx_t_8 = (__pyx_v_sim > __pyx_v_max_sim);
+                                  if (__pyx_t_8) {
+
+                                    /* "hdrplus.pyx":36
+ *                     sim = corr / (sqrt(sq_sum) * sqrt(sq_sum_ref) + 1e-3)
+ *                     if sim > max_sim:
+ *                         max_sim = sim             # <<<<<<<<<<<<<<
+ *                         best_dx = dx
+ *                         best_dy = dy
+ */
+                                    __pyx_v_max_sim = __pyx_v_sim;
+
+                                    /* "hdrplus.pyx":37
+ *                     if sim > max_sim:
+ *                         max_sim = sim
+ *                         best_dx = dx             # <<<<<<<<<<<<<<
+ *                         best_dy = dy
+ *             for x in range(stride):
+ */
+                                    __pyx_v_best_dx = __pyx_v_dx;
+
+                                    /* "hdrplus.pyx":38
+ *                         max_sim = sim
+ *                         best_dx = dx
+ *                         best_dy = dy             # <<<<<<<<<<<<<<
+ *             for x in range(stride):
+ *                 for y in range(stride):
+ */
+                                    __pyx_v_best_dy = __pyx_v_dy;
+
+                                    /* "hdrplus.pyx":35
+ *                             sq_sum_ref = sq_sum_ref + ref_im[i + x, j + y] * ref_im[i + x, j + y]
+ *                     sim = corr / (sqrt(sq_sum) * sqrt(sq_sum_ref) + 1e-3)
+ *                     if sim > max_sim:             # <<<<<<<<<<<<<<
+ *                         max_sim = sim
+ *                         best_dx = dx
+ */
+                                  }
+                                  __pyx_L14_continue:;
+                                }
+                              }
+
+                              /* "hdrplus.pyx":39
+ *                         best_dx = dx
+ *                         best_dy = dy
+ *             for x in range(stride):             # <<<<<<<<<<<<<<
+ *                 for y in range(stride):
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ */
+                              __pyx_t_6 = __pyx_v_stride;
+                              __pyx_t_7 = __pyx_t_6;
+                              for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_7; __pyx_t_13+=1) {
+                                __pyx_v_x = __pyx_t_13;
+
+                                /* "hdrplus.pyx":40
+ *                         best_dy = dy
+ *             for x in range(stride):
+ *                 for y in range(stride):             # <<<<<<<<<<<<<<
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
+ */
+                                __pyx_t_14 = __pyx_v_stride;
+                                __pyx_t_15 = __pyx_t_14;
+                                for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
+                                  __pyx_v_y = __pyx_t_16;
+
+                                  /* "hdrplus.pyx":41
+ *             for x in range(stride):
+ *                 for y in range(stride):
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx             # <<<<<<<<<<<<<<
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
+ *                     err_map[i + x, j + y] = max_sim
+ */
+                                  __pyx_t_19 = __pyx_v_i;
+                                  __pyx_t_11 = __pyx_v_j;
+                                  __pyx_t_10 = 0;
+                                  __pyx_t_9 = (__pyx_v_i + __pyx_v_x);
+                                  __pyx_t_21 = (__pyx_v_j + __pyx_v_y);
+                                  __pyx_t_22 = 0;
+                                  *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_9 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_22 * __pyx_v_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_19 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_best_dx);
+
+                                  /* "hdrplus.pyx":42
+ *                 for y in range(stride):
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy             # <<<<<<<<<<<<<<
+ *                     err_map[i + x, j + y] = max_sim
+ * @cython.boundscheck(False)
+ */
+                                  __pyx_t_10 = __pyx_v_i;
+                                  __pyx_t_11 = __pyx_v_j;
+                                  __pyx_t_19 = 1;
+                                  __pyx_t_22 = (__pyx_v_i + __pyx_v_x);
+                                  __pyx_t_21 = (__pyx_v_j + __pyx_v_y);
+                                  __pyx_t_9 = 1;
+                                  *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_22 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_9 * __pyx_v_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_10 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_19 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_best_dy);
+
+                                  /* "hdrplus.pyx":43
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
+ *                     err_map[i + x, j + y] = max_sim             # <<<<<<<<<<<<<<
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ */
+                                  __pyx_t_19 = (__pyx_v_i + __pyx_v_x);
+                                  __pyx_t_11 = (__pyx_v_j + __pyx_v_y);
+                                  *((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_err_map.data + __pyx_t_19 * __pyx_v_err_map.strides[0]) ) + __pyx_t_11 * __pyx_v_err_map.strides[1]) )) = __pyx_v_max_sim;
+                                }
+                              }
+                            }
+                            goto __pyx_L31;
+                            __pyx_L8_error:;
+                            {
+                                #ifdef WITH_THREAD
+                                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                                #endif
+                                #ifdef _OPENMP
+                                #pragma omp flush(__pyx_parallel_exc_type)
+                                #endif /* _OPENMP */
+                                if (!__pyx_parallel_exc_type) {
+                                  __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                                  __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
+                                  __Pyx_GOTREF(__pyx_parallel_exc_type);
+                                }
+                                #ifdef WITH_THREAD
+                                __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                                #endif
+                            }
+                            __pyx_parallel_why = 4;
+                            goto __pyx_L30;
+                            __pyx_L30:;
+                            #ifdef _OPENMP
+                            #pragma omp critical(__pyx_parallel_lastprivates0)
+                            #endif /* _OPENMP */
+                            {
+                                __pyx_parallel_temp0 = __pyx_v_best_dx;
+                                __pyx_parallel_temp1 = __pyx_v_best_dy;
+                                __pyx_parallel_temp2 = __pyx_v_cim_x;
+                                __pyx_parallel_temp3 = __pyx_v_cim_y;
+                                __pyx_parallel_temp4 = __pyx_v_corr;
+                                __pyx_parallel_temp5 = __pyx_v_dx;
+                                __pyx_parallel_temp6 = __pyx_v_dy;
+                                __pyx_parallel_temp7 = __pyx_v_i;
+                                __pyx_parallel_temp8 = __pyx_v_j;
+                                __pyx_parallel_temp9 = __pyx_v_max_sim;
+                                __pyx_parallel_temp10 = __pyx_v_sim;
+                                __pyx_parallel_temp11 = __pyx_v_sq_sum;
+                                __pyx_parallel_temp12 = __pyx_v_sq_sum_ref;
+                                __pyx_parallel_temp13 = __pyx_v_thread_idx;
+                                __pyx_parallel_temp14 = __pyx_v_x;
+                                __pyx_parallel_temp15 = __pyx_v_y;
+                            }
+                            __pyx_L31:;
+                            #ifdef _OPENMP
+                            #pragma omp flush(__pyx_parallel_why)
+                            #endif /* _OPENMP */
+                        }
+                    }
+                    #ifdef _OPENMP
+                    Py_END_ALLOW_THREADS
+                    #else
+{
+#ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    #endif /* _OPENMP */
+                    /* Clean up any temporaries */
+                    #ifdef WITH_THREAD
+                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                    #endif
+                    #ifndef _OPENMP
+}
+#endif /* _OPENMP */
+                }
+            }
+            if (__pyx_parallel_exc_type) {
+              /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
+              __pyx_parallel_why = 4;
+            }
+            if (__pyx_parallel_why) {
+              __pyx_v_best_dx = __pyx_parallel_temp0;
+              __pyx_v_best_dy = __pyx_parallel_temp1;
+              __pyx_v_cim_x = __pyx_parallel_temp2;
+              __pyx_v_cim_y = __pyx_parallel_temp3;
+              __pyx_v_corr = __pyx_parallel_temp4;
+              __pyx_v_dx = __pyx_parallel_temp5;
+              __pyx_v_dy = __pyx_parallel_temp6;
+              __pyx_v_i = __pyx_parallel_temp7;
+              __pyx_v_j = __pyx_parallel_temp8;
+              __pyx_v_max_sim = __pyx_parallel_temp9;
+              __pyx_v_sim = __pyx_parallel_temp10;
+              __pyx_v_sq_sum = __pyx_parallel_temp11;
+              __pyx_v_sq_sum_ref = __pyx_parallel_temp12;
+              __pyx_v_thread_idx = __pyx_parallel_temp13;
+              __pyx_v_x = __pyx_parallel_temp14;
+              __pyx_v_y = __pyx_parallel_temp15;
+              switch (__pyx_parallel_why) {
+                    case 4:
+                {
+                    #ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
+                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                    __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
+                    #ifdef WITH_THREAD
+                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                    #endif
+                }
+                goto __pyx_L4_error;
+              }
+            }
+        }
+        #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+            #undef likely
+            #undef unlikely
+            #define likely(x)   __builtin_expect(!!(x), 1)
+            #define unlikely(x) __builtin_expect(!!(x), 0)
+        #endif
+      }
+
+      /* "hdrplus.pyx":15
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ *     cdef float max_sim = -1, corr = 0.0, sq_sum = 0.0, sq_sum_ref = 0.0, sim = 0.0
+ *     for thread_idx in prange(num_tiles_x):             # <<<<<<<<<<<<<<
+ *         max_sim = -1
+ *         i = thread_idx * stride
+ */
+      /*finally:*/ {
+        /*normal exit:*/{
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          if (_save) {
+            Py_BLOCK_THREADS
+          }
+          #endif
+          goto __pyx_L5;
+        }
+        __pyx_L4_error: {
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          if (_save) {
+            Py_BLOCK_THREADS
+          }
+          #endif
+          goto __pyx_L1_error;
+        }
+        __pyx_L5:;
+      }
+  }
+
+  /* "hdrplus.pyx":9
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * cpdef void align_image_cosin(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ */
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  #ifdef WITH_THREAD
+  __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+  #endif
+  __Pyx_AddTraceback("hdrplus.align_image_cosin", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  #ifdef WITH_THREAD
+  __Pyx_PyGILState_Release(__pyx_gilstate_save);
+  #endif
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContextNogil()
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_7hdrplus_1align_image_cosin(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_7hdrplus_1align_image_cosin = {"align_image_cosin", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7hdrplus_1align_image_cosin, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7hdrplus_1align_image_cosin(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  __Pyx_memviewslice __pyx_v_ref_im = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_comp_im = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_pre_alignment = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_search_radius;
+  int __pyx_v_tile_size;
+  int __pyx_v_h;
+  int __pyx_v_w;
+  __Pyx_memviewslice __pyx_v_motion_vector = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_err_map = { 0, 0, { 0 }, { 0 }, { 0 } };
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[9] = {0,0,0,0,0,0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("align_image_cosin (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_ref_im,&__pyx_n_s_comp_im,&__pyx_n_s_pre_alignment,&__pyx_n_s_search_radius,&__pyx_n_s_tile_size,&__pyx_n_s_h,&__pyx_n_s_w,&__pyx_n_s_motion_vector,&__pyx_n_s_err_map,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  9: values[8] = __Pyx_Arg_FASTCALL(__pyx_args, 8);
+        CYTHON_FALLTHROUGH;
+        case  8: values[7] = __Pyx_Arg_FASTCALL(__pyx_args, 7);
+        CYTHON_FALLTHROUGH;
+        case  7: values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_ref_im)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_comp_im)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 1); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_pre_alignment)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 2); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_search_radius)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 3); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_tile_size)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 4); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  5:
+        if (likely((values[5] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_h)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 5); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (likely((values[6] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_w)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[6]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 6); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  7:
+        if (likely((values[7] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_motion_vector)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[7]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 7); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  8:
+        if (likely((values[8] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_err_map)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[8]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, 8); __PYX_ERR(0, 9, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "align_image_cosin") < 0)) __PYX_ERR(0, 9, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 9)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+      values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
+      values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
+      values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+      values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
+      values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
+      values[7] = __Pyx_Arg_FASTCALL(__pyx_args, 7);
+      values[8] = __Pyx_Arg_FASTCALL(__pyx_args, 8);
+    }
+    __pyx_v_ref_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ref_im.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_comp_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_im.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_pre_alignment = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pre_alignment.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_search_radius = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_search_radius == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_tile_size = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_tile_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_h = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_h == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_w = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_w == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_motion_vector = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_motion_vector.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_err_map = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_err_map.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("align_image_cosin", 1, 9, 9, __pyx_nargs); __PYX_ERR(0, 9, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_ref_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_comp_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_pre_alignment, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_motion_vector, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_err_map, 1);
+  __Pyx_AddTraceback("hdrplus.align_image_cosin", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_7hdrplus_align_image_cosin(__pyx_self, __pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map);
+
+  /* function exit code */
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_ref_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_comp_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_pre_alignment, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_motion_vector, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_err_map, 1);
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_7hdrplus_align_image_cosin(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("align_image_cosin", 1);
+  __Pyx_XDECREF(__pyx_r);
+  if (unlikely(!__pyx_v_ref_im.memview)) { __Pyx_RaiseUnboundLocalError("ref_im"); __PYX_ERR(0, 9, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_comp_im.memview)) { __Pyx_RaiseUnboundLocalError("comp_im"); __PYX_ERR(0, 9, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_pre_alignment.memview)) { __Pyx_RaiseUnboundLocalError("pre_alignment"); __PYX_ERR(0, 9, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_motion_vector.memview)) { __Pyx_RaiseUnboundLocalError("motion_vector"); __PYX_ERR(0, 9, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_err_map.memview)) { __Pyx_RaiseUnboundLocalError("err_map"); __PYX_ERR(0, 9, __pyx_L1_error) }
+  __pyx_f_7hdrplus_align_image_cosin(__pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("hdrplus.align_image_cosin", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "hdrplus.pyx":46
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
  * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
  *     cdef int stride = tile_size
  *     cdef int num_tiles_x = (h - tile_size) // stride + 1
  */
 
-static PyObject *__pyx_pw_7hdrplus_1align_image_l1(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_7hdrplus_3align_image_l1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17544,7 +18556,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
   #endif
   __Pyx_RefNannySetupContext("align_image_l1", 1);
 
-  /* "hdrplus.pyx":10
+  /* "hdrplus.pyx":47
  * @cython.wraparound(False)
  * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:
  *     cdef int stride = tile_size             # <<<<<<<<<<<<<<
@@ -17553,7 +18565,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
   __pyx_v_stride = __pyx_v_tile_size;
 
-  /* "hdrplus.pyx":11
+  /* "hdrplus.pyx":48
  * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:
  *     cdef int stride = tile_size
  *     cdef int num_tiles_x = (h - tile_size) // stride + 1             # <<<<<<<<<<<<<<
@@ -17569,7 +18581,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
     #ifdef WITH_THREAD
     __Pyx_PyGILState_Release(__pyx_gilstate_save);
     #endif
-    __PYX_ERR(0, 11, __pyx_L1_error)
+    __PYX_ERR(0, 48, __pyx_L1_error)
   }
   else if (sizeof(int) == sizeof(long) && (!(((int)-1) > 0)) && unlikely(__pyx_v_stride == (int)-1)  && unlikely(__Pyx_UNARY_NEG_WOULD_OVERFLOW(__pyx_t_1))) {
     #ifdef WITH_THREAD
@@ -17579,23 +18591,23 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
     #ifdef WITH_THREAD
     __Pyx_PyGILState_Release(__pyx_gilstate_save);
     #endif
-    __PYX_ERR(0, 11, __pyx_L1_error)
+    __PYX_ERR(0, 48, __pyx_L1_error)
   }
   __pyx_v_num_tiles_x = (__Pyx_div_int(__pyx_t_1, __pyx_v_stride) + 1);
 
-  /* "hdrplus.pyx":14
+  /* "hdrplus.pyx":51
  *     cdef int thread_idx
  *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
- *     cdef float min_diff = 1000.0, diff = 0.0             # <<<<<<<<<<<<<<
+ *     cdef float min_diff = 1000.0, diff = 0.0, ref_grad, cand_grad             # <<<<<<<<<<<<<<
  *     for thread_idx in prange(num_tiles_x):
  *         min_diff = 1000.0
  */
   __pyx_v_min_diff = 1000.0;
   __pyx_v_diff = 0.0;
 
-  /* "hdrplus.pyx":15
+  /* "hdrplus.pyx":52
  *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
- *     cdef float min_diff = 1000.0, diff = 0.0
+ *     cdef float min_diff = 1000.0, diff = 0.0, ref_grad, cand_grad
  *     for thread_idx in prange(num_tiles_x):             # <<<<<<<<<<<<<<
  *         min_diff = 1000.0
  *         i = thread_idx * stride
@@ -17669,8 +18681,8 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                             __pyx_v_x = ((int)0xbad0bad0);
                             __pyx_v_y = ((int)0xbad0bad0);
 
-                            /* "hdrplus.pyx":16
- *     cdef float min_diff = 1000.0, diff = 0.0
+                            /* "hdrplus.pyx":53
+ *     cdef float min_diff = 1000.0, diff = 0.0, ref_grad, cand_grad
  *     for thread_idx in prange(num_tiles_x):
  *         min_diff = 1000.0             # <<<<<<<<<<<<<<
  *         i = thread_idx * stride
@@ -17678,7 +18690,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                             __pyx_v_min_diff = 1000.0;
 
-                            /* "hdrplus.pyx":17
+                            /* "hdrplus.pyx":54
  *     for thread_idx in prange(num_tiles_x):
  *         min_diff = 1000.0
  *         i = thread_idx * stride             # <<<<<<<<<<<<<<
@@ -17687,7 +18699,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                             __pyx_v_i = (__pyx_v_thread_idx * __pyx_v_stride);
 
-                            /* "hdrplus.pyx":18
+                            /* "hdrplus.pyx":55
  *         min_diff = 1000.0
  *         i = thread_idx * stride
  *         for j from 0 <= j < w by stride:             # <<<<<<<<<<<<<<
@@ -17698,7 +18710,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                             __pyx_t_5 = __pyx_v_stride;
                             for (__pyx_v_j = 0; __pyx_v_j < __pyx_t_4; __pyx_v_j+=__pyx_t_5) {
 
-                              /* "hdrplus.pyx":19
+                              /* "hdrplus.pyx":56
  *         i = thread_idx * stride
  *         for j from 0 <= j < w by stride:
  *             min_diff = 1000.0             # <<<<<<<<<<<<<<
@@ -17707,7 +18719,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                               __pyx_v_min_diff = 1000.0;
 
-                              /* "hdrplus.pyx":20
+                              /* "hdrplus.pyx":57
  *         for j from 0 <= j < w by stride:
  *             min_diff = 1000.0
  *             for dx from -search_radius <= dx < search_radius by 1:             # <<<<<<<<<<<<<<
@@ -17717,7 +18729,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                               __pyx_t_6 = __pyx_v_search_radius;
                               for (__pyx_v_dx = (-__pyx_v_search_radius); __pyx_v_dx < __pyx_t_6; __pyx_v_dx+=1) {
 
-                                /* "hdrplus.pyx":21
+                                /* "hdrplus.pyx":58
  *             min_diff = 1000.0
  *             for dx from -search_radius <= dx < search_radius by 1:
  *                 for dy from -search_radius <= dy < search_radius by 1:             # <<<<<<<<<<<<<<
@@ -17727,7 +18739,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                 __pyx_t_7 = __pyx_v_search_radius;
                                 for (__pyx_v_dy = (-__pyx_v_search_radius); __pyx_v_dy < __pyx_t_7; __pyx_v_dy+=1) {
 
-                                  /* "hdrplus.pyx":22
+                                  /* "hdrplus.pyx":59
  *             for dx from -search_radius <= dx < search_radius by 1:
  *                 for dy from -search_radius <= dy < search_radius by 1:
  *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:             # <<<<<<<<<<<<<<
@@ -17769,7 +18781,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                   __pyx_L17_bool_binop_done:;
                                   if (__pyx_t_8) {
 
-                                    /* "hdrplus.pyx":23
+                                    /* "hdrplus.pyx":60
  *                 for dy from -search_radius <= dy < search_radius by 1:
  *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
  *                         continue             # <<<<<<<<<<<<<<
@@ -17778,7 +18790,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                                     goto __pyx_L14_continue;
 
-                                    /* "hdrplus.pyx":22
+                                    /* "hdrplus.pyx":59
  *             for dx from -search_radius <= dx < search_radius by 1:
  *                 for dy from -search_radius <= dy < search_radius by 1:
  *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:             # <<<<<<<<<<<<<<
@@ -17787,7 +18799,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                                   }
 
-                                  /* "hdrplus.pyx":24
+                                  /* "hdrplus.pyx":61
  *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
  *                         continue
  *                     diff = 0.0             # <<<<<<<<<<<<<<
@@ -17796,7 +18808,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                                   __pyx_v_diff = 0.0;
 
-                                  /* "hdrplus.pyx":25
+                                  /* "hdrplus.pyx":62
  *                         continue
  *                     diff = 0.0
  *                     for x in range(tile_size):             # <<<<<<<<<<<<<<
@@ -17808,7 +18820,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                   for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
                                     __pyx_v_x = __pyx_t_15;
 
-                                    /* "hdrplus.pyx":26
+                                    /* "hdrplus.pyx":63
  *                     diff = 0.0
  *                     for x in range(tile_size):
  *                         for y in range(tile_size):             # <<<<<<<<<<<<<<
@@ -17820,7 +18832,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                     for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
                                       __pyx_v_y = __pyx_t_18;
 
-                                      /* "hdrplus.pyx":27
+                                      /* "hdrplus.pyx":64
  *                     for x in range(tile_size):
  *                         for y in range(tile_size):
  *                             cim_x = pre_alignment[i, j, 0] + dx + x + i             # <<<<<<<<<<<<<<
@@ -17832,7 +18844,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                       __pyx_t_11 = 0;
                                       __pyx_v_cim_x = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dx) + __pyx_v_x) + __pyx_v_i);
 
-                                      /* "hdrplus.pyx":28
+                                      /* "hdrplus.pyx":65
  *                         for y in range(tile_size):
  *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
  *                             cim_y = pre_alignment[i, j, 1] + dy + y + j             # <<<<<<<<<<<<<<
@@ -17844,7 +18856,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                       __pyx_t_9 = 1;
                                       __pyx_v_cim_y = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dy) + __pyx_v_y) + __pyx_v_j);
 
-                                      /* "hdrplus.pyx":29
+                                      /* "hdrplus.pyx":66
  *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
  *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
  *                             diff = diff + abs(ref_im[i + x, j + y] - comp_im[cim_x, cim_y])             # <<<<<<<<<<<<<<
@@ -17859,7 +18871,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                     }
                                   }
 
-                                  /* "hdrplus.pyx":30
+                                  /* "hdrplus.pyx":67
  *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
  *                             diff = diff + abs(ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
  *                     if diff < min_diff:             # <<<<<<<<<<<<<<
@@ -17869,7 +18881,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                   __pyx_t_8 = (__pyx_v_diff < __pyx_v_min_diff);
                                   if (__pyx_t_8) {
 
-                                    /* "hdrplus.pyx":31
+                                    /* "hdrplus.pyx":68
  *                             diff = diff + abs(ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
  *                     if diff < min_diff:
  *                         min_diff = diff             # <<<<<<<<<<<<<<
@@ -17878,25 +18890,25 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
  */
                                     __pyx_v_min_diff = __pyx_v_diff;
 
-                                    /* "hdrplus.pyx":32
+                                    /* "hdrplus.pyx":69
  *                     if diff < min_diff:
  *                         min_diff = diff
  *                         best_dx = dx             # <<<<<<<<<<<<<<
  *                         best_dy = dy
- *             for x in range(tile_size):
+ *             min_diff = min_diff / (tile_size * tile_size)
  */
                                     __pyx_v_best_dx = __pyx_v_dx;
 
-                                    /* "hdrplus.pyx":33
+                                    /* "hdrplus.pyx":70
  *                         min_diff = diff
  *                         best_dx = dx
  *                         best_dy = dy             # <<<<<<<<<<<<<<
- *             for x in range(tile_size):
- *                 for y in range(tile_size):
+ *             min_diff = min_diff / (tile_size * tile_size)
+ * 
  */
                                     __pyx_v_best_dy = __pyx_v_dy;
 
-                                    /* "hdrplus.pyx":30
+                                    /* "hdrplus.pyx":67
  *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
  *                             diff = diff + abs(ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
  *                     if diff < min_diff:             # <<<<<<<<<<<<<<
@@ -17908,36 +18920,56 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                 }
                               }
 
-                              /* "hdrplus.pyx":34
+                              /* "hdrplus.pyx":71
  *                         best_dx = dx
  *                         best_dy = dy
- *             for x in range(tile_size):             # <<<<<<<<<<<<<<
- *                 for y in range(tile_size):
+ *             min_diff = min_diff / (tile_size * tile_size)             # <<<<<<<<<<<<<<
+ * 
+ *             for x in range(stride):
+ */
+                              __pyx_t_6 = (__pyx_v_tile_size * __pyx_v_tile_size);
+                              if (unlikely(__pyx_t_6 == 0)) {
+                                #ifdef WITH_THREAD
+                                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                                #endif
+                                PyErr_SetString(PyExc_ZeroDivisionError, "float division");
+                                #ifdef WITH_THREAD
+                                __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                                #endif
+                                __PYX_ERR(0, 71, __pyx_L8_error)
+                              }
+                              __pyx_v_min_diff = (__pyx_v_min_diff / ((float)__pyx_t_6));
+
+                              /* "hdrplus.pyx":73
+ *             min_diff = min_diff / (tile_size * tile_size)
+ * 
+ *             for x in range(stride):             # <<<<<<<<<<<<<<
+ *                 for y in range(stride):
  *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
  */
-                              __pyx_t_6 = __pyx_v_tile_size;
+                              __pyx_t_6 = __pyx_v_stride;
                               __pyx_t_7 = __pyx_t_6;
                               for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_7; __pyx_t_13+=1) {
                                 __pyx_v_x = __pyx_t_13;
 
-                                /* "hdrplus.pyx":35
- *                         best_dy = dy
- *             for x in range(tile_size):
- *                 for y in range(tile_size):             # <<<<<<<<<<<<<<
+                                /* "hdrplus.pyx":74
+ * 
+ *             for x in range(stride):
+ *                 for y in range(stride):             # <<<<<<<<<<<<<<
  *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
  *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
  */
-                                __pyx_t_14 = __pyx_v_tile_size;
+                                __pyx_t_14 = __pyx_v_stride;
                                 __pyx_t_15 = __pyx_t_14;
                                 for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
                                   __pyx_v_y = __pyx_t_16;
 
-                                  /* "hdrplus.pyx":36
- *             for x in range(tile_size):
- *                 for y in range(tile_size):
+                                  /* "hdrplus.pyx":75
+ *             for x in range(stride):
+ *                 for y in range(stride):
  *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx             # <<<<<<<<<<<<<<
  *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
- *                     err_map[i + x, j + y] = min_diff / (tile_size * tile_size)
+ *                     err_map[i + x, j + y] = min_diff
  */
                                   __pyx_t_19 = __pyx_v_i;
                                   __pyx_t_11 = __pyx_v_j;
@@ -17947,11 +18979,11 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                   __pyx_t_21 = 0;
                                   *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_9 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_20 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_19 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_best_dx);
 
-                                  /* "hdrplus.pyx":37
- *                 for y in range(tile_size):
+                                  /* "hdrplus.pyx":76
+ *                 for y in range(stride):
  *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
  *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy             # <<<<<<<<<<<<<<
- *                     err_map[i + x, j + y] = min_diff / (tile_size * tile_size)
+ *                     err_map[i + x, j + y] = min_diff
  * @cython.boundscheck(False)
  */
                                   __pyx_t_10 = __pyx_v_i;
@@ -17962,27 +18994,16 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                                   __pyx_t_9 = 1;
                                   *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_21 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_20 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_9 * __pyx_v_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_10 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_19 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_best_dy);
 
-                                  /* "hdrplus.pyx":38
+                                  /* "hdrplus.pyx":77
  *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
  *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
- *                     err_map[i + x, j + y] = min_diff / (tile_size * tile_size)             # <<<<<<<<<<<<<<
+ *                     err_map[i + x, j + y] = min_diff             # <<<<<<<<<<<<<<
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  */
-                                  __pyx_t_17 = (__pyx_v_tile_size * __pyx_v_tile_size);
-                                  if (unlikely(__pyx_t_17 == 0)) {
-                                    #ifdef WITH_THREAD
-                                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
-                                    #endif
-                                    PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-                                    #ifdef WITH_THREAD
-                                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
-                                    #endif
-                                    __PYX_ERR(0, 38, __pyx_L8_error)
-                                  }
                                   __pyx_t_19 = (__pyx_v_i + __pyx_v_x);
                                   __pyx_t_11 = (__pyx_v_j + __pyx_v_y);
-                                  *((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_err_map.data + __pyx_t_19 * __pyx_v_err_map.strides[0]) ) + __pyx_t_11 * __pyx_v_err_map.strides[1]) )) = (__pyx_v_min_diff / ((float)__pyx_t_17));
+                                  *((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_err_map.data + __pyx_t_19 * __pyx_v_err_map.strides[0]) ) + __pyx_t_11 * __pyx_v_err_map.strides[1]) )) = __pyx_v_min_diff;
                                 }
                               }
                             }
@@ -18008,7 +19029,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
                             goto __pyx_L30;
                             __pyx_L30:;
                             #ifdef _OPENMP
-                            #pragma omp critical(__pyx_parallel_lastprivates0)
+                            #pragma omp critical(__pyx_parallel_lastprivates1)
                             #endif /* _OPENMP */
                             {
                                 __pyx_parallel_temp0 = __pyx_v_best_dx;
@@ -18091,9 +19112,9 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
         #endif
       }
 
-      /* "hdrplus.pyx":15
+      /* "hdrplus.pyx":52
  *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
- *     cdef float min_diff = 1000.0, diff = 0.0
+ *     cdef float min_diff = 1000.0, diff = 0.0, ref_grad, cand_grad
  *     for thread_idx in prange(num_tiles_x):             # <<<<<<<<<<<<<<
  *         min_diff = 1000.0
  *         i = thread_idx * stride
@@ -18121,7 +19142,7 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
       }
   }
 
-  /* "hdrplus.pyx":9
+  /* "hdrplus.pyx":46
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
@@ -18144,15 +19165,15 @@ static void __pyx_f_7hdrplus_align_image_l1(__Pyx_memviewslice __pyx_v_ref_im, _
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7hdrplus_1align_image_l1(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_7hdrplus_3align_image_l1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_7hdrplus_1align_image_l1 = {"align_image_l1", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7hdrplus_1align_image_l1, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_7hdrplus_1align_image_l1(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_7hdrplus_3align_image_l1 = {"align_image_l1", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7hdrplus_3align_image_l1, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7hdrplus_3align_image_l1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18220,7 +19241,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -18228,9 +19249,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 1); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 1); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -18238,9 +19259,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 2); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 2); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -18248,9 +19269,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 3); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 3); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
@@ -18258,9 +19279,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 4); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 4); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
@@ -18268,9 +19289,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 5); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 5); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
@@ -18278,9 +19299,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[6]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 6); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 6); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
@@ -18288,9 +19309,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[7]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 7); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 7); __PYX_ERR(0, 46, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  8:
@@ -18298,14 +19319,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[8]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 8); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, 8); __PYX_ERR(0, 46, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "align_image_l1") < 0)) __PYX_ERR(0, 9, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "align_image_l1") < 0)) __PYX_ERR(0, 46, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 9)) {
       goto __pyx_L5_argtuple_error;
@@ -18320,19 +19341,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[7] = __Pyx_Arg_FASTCALL(__pyx_args, 7);
       values[8] = __Pyx_Arg_FASTCALL(__pyx_args, 8);
     }
-    __pyx_v_ref_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ref_im.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_comp_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_im.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_pre_alignment = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pre_alignment.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_search_radius = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_search_radius == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_tile_size = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_tile_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_h = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_h == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_w = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_w == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_motion_vector = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_motion_vector.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
-    __pyx_v_err_map = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_err_map.memview)) __PYX_ERR(0, 9, __pyx_L3_error)
+    __pyx_v_ref_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ref_im.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_comp_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_im.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_pre_alignment = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pre_alignment.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_search_radius = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_search_radius == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_tile_size = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_tile_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_h = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_h == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_w = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_w == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_motion_vector = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_motion_vector.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_err_map = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_err_map.memview)) __PYX_ERR(0, 46, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, __pyx_nargs); __PYX_ERR(0, 9, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("align_image_l1", 1, 9, 9, __pyx_nargs); __PYX_ERR(0, 46, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -18351,7 +19372,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7hdrplus_align_image_l1(__pyx_self, __pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map);
+  __pyx_r = __pyx_pf_7hdrplus_2align_image_l1(__pyx_self, __pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map);
 
   /* function exit code */
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_ref_im, 1);
@@ -18369,7 +19390,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7hdrplus_align_image_l1(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map) {
+static PyObject *__pyx_pf_7hdrplus_2align_image_l1(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -18378,13 +19399,13 @@ static PyObject *__pyx_pf_7hdrplus_align_image_l1(CYTHON_UNUSED PyObject *__pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("align_image_l1", 1);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_ref_im.memview)) { __Pyx_RaiseUnboundLocalError("ref_im"); __PYX_ERR(0, 9, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_comp_im.memview)) { __Pyx_RaiseUnboundLocalError("comp_im"); __PYX_ERR(0, 9, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_pre_alignment.memview)) { __Pyx_RaiseUnboundLocalError("pre_alignment"); __PYX_ERR(0, 9, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_motion_vector.memview)) { __Pyx_RaiseUnboundLocalError("motion_vector"); __PYX_ERR(0, 9, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_err_map.memview)) { __Pyx_RaiseUnboundLocalError("err_map"); __PYX_ERR(0, 9, __pyx_L1_error) }
-  __pyx_f_7hdrplus_align_image_l1(__pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (unlikely(!__pyx_v_ref_im.memview)) { __Pyx_RaiseUnboundLocalError("ref_im"); __PYX_ERR(0, 46, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_comp_im.memview)) { __Pyx_RaiseUnboundLocalError("comp_im"); __PYX_ERR(0, 46, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_pre_alignment.memview)) { __Pyx_RaiseUnboundLocalError("pre_alignment"); __PYX_ERR(0, 46, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_motion_vector.memview)) { __Pyx_RaiseUnboundLocalError("motion_vector"); __PYX_ERR(0, 46, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_err_map.memview)) { __Pyx_RaiseUnboundLocalError("err_map"); __PYX_ERR(0, 46, __pyx_L1_error) }
+  __pyx_f_7hdrplus_align_image_l1(__pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -18401,98 +19422,931 @@ static PyObject *__pyx_pf_7hdrplus_align_image_l1(CYTHON_UNUSED PyObject *__pyx_
   return __pyx_r;
 }
 
-/* "hdrplus.pyx":41
+/* "hdrplus.pyx":80
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cdef void upsamle_motion_vector(int[:,:,:] motion_vector, int[:,:,:] new_motion_vector, int new_h, int new_w) nogil:             # <<<<<<<<<<<<<<
- *     cdef int i, j
- *     for i in range(new_h):
+ * cpdef void align_image_l2(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
  */
 
-static void __pyx_f_7hdrplus_upsamle_motion_vector(__Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_new_motion_vector, int __pyx_v_new_h, int __pyx_v_new_w) {
+static PyObject *__pyx_pw_7hdrplus_5align_image_l2(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static void __pyx_f_7hdrplus_align_image_l2(__Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map, CYTHON_UNUSED int __pyx_skip_dispatch) {
+  int __pyx_v_stride;
+  CYTHON_UNUSED int __pyx_v_num_tiles_x;
+  int __pyx_v_thread_idx;
+  int __pyx_v_best_dx;
+  int __pyx_v_best_dy;
   int __pyx_v_i;
   int __pyx_v_j;
+  int __pyx_v_cim_x;
+  int __pyx_v_cim_y;
+  int __pyx_v_dx;
+  int __pyx_v_dy;
+  int __pyx_v_x;
+  int __pyx_v_y;
+  float __pyx_v_min_diff;
+  float __pyx_v_diff;
+  __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
   int __pyx_t_4;
   int __pyx_t_5;
   int __pyx_t_6;
-  Py_ssize_t __pyx_t_7;
-  Py_ssize_t __pyx_t_8;
+  int __pyx_t_7;
+  int __pyx_t_8;
   Py_ssize_t __pyx_t_9;
   Py_ssize_t __pyx_t_10;
   Py_ssize_t __pyx_t_11;
-  Py_ssize_t __pyx_t_12;
+  int __pyx_t_12;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  int __pyx_t_15;
+  int __pyx_t_16;
+  int __pyx_t_17;
+  int __pyx_t_18;
+  Py_ssize_t __pyx_t_19;
+  Py_ssize_t __pyx_t_20;
+  Py_ssize_t __pyx_t_21;
+  Py_ssize_t __pyx_t_22;
+  Py_ssize_t __pyx_t_23;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  #ifdef WITH_THREAD
+  PyGILState_STATE __pyx_gilstate_save;
+  #endif
+  __Pyx_RefNannySetupContext("align_image_l2", 1);
 
-  /* "hdrplus.pyx":43
- * cdef void upsamle_motion_vector(int[:,:,:] motion_vector, int[:,:,:] new_motion_vector, int new_h, int new_w) nogil:
- *     cdef int i, j
- *     for i in range(new_h):             # <<<<<<<<<<<<<<
- *         for j in range(new_w):
- *             new_motion_vector[i, j, 0] = motion_vector[i // 2, j // 2, 0] * 2
+  /* "hdrplus.pyx":81
+ * @cython.wraparound(False)
+ * cpdef void align_image_l2(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:
+ *     cdef int stride = tile_size // 2             # <<<<<<<<<<<<<<
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ *     cdef int thread_idx
  */
-  __pyx_t_1 = __pyx_v_new_h;
-  __pyx_t_2 = __pyx_t_1;
-  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
+  __pyx_v_stride = __Pyx_div_long(__pyx_v_tile_size, 2);
 
-    /* "hdrplus.pyx":44
- *     cdef int i, j
- *     for i in range(new_h):
- *         for j in range(new_w):             # <<<<<<<<<<<<<<
- *             new_motion_vector[i, j, 0] = motion_vector[i // 2, j // 2, 0] * 2
- *             new_motion_vector[i, j, 1] = motion_vector[i // 2, j // 2, 1] * 2
+  /* "hdrplus.pyx":82
+ * cpdef void align_image_l2(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1             # <<<<<<<<<<<<<<
+ *     cdef int thread_idx
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
  */
-    __pyx_t_4 = __pyx_v_new_w;
-    __pyx_t_5 = __pyx_t_4;
-    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
-      __pyx_v_j = __pyx_t_6;
-
-      /* "hdrplus.pyx":45
- *     for i in range(new_h):
- *         for j in range(new_w):
- *             new_motion_vector[i, j, 0] = motion_vector[i // 2, j // 2, 0] * 2             # <<<<<<<<<<<<<<
- *             new_motion_vector[i, j, 1] = motion_vector[i // 2, j // 2, 1] * 2
- * # @cython.boundscheck(False)
- */
-      __pyx_t_7 = __Pyx_div_long(__pyx_v_i, 2);
-      __pyx_t_8 = __Pyx_div_long(__pyx_v_j, 2);
-      __pyx_t_9 = 0;
-      __pyx_t_10 = __pyx_v_i;
-      __pyx_t_11 = __pyx_v_j;
-      __pyx_t_12 = 0;
-      *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_new_motion_vector.data + __pyx_t_10 * __pyx_v_new_motion_vector.strides[0]) ) + __pyx_t_11 * __pyx_v_new_motion_vector.strides[1]) ) + __pyx_t_12 * __pyx_v_new_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_7 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_8 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_9 * __pyx_v_motion_vector.strides[2]) ))) * 2);
-
-      /* "hdrplus.pyx":46
- *         for j in range(new_w):
- *             new_motion_vector[i, j, 0] = motion_vector[i // 2, j // 2, 0] * 2
- *             new_motion_vector[i, j, 1] = motion_vector[i // 2, j // 2, 1] * 2             # <<<<<<<<<<<<<<
- * # @cython.boundscheck(False)
- * # @cython.wraparound(False)
- */
-      __pyx_t_9 = __Pyx_div_long(__pyx_v_i, 2);
-      __pyx_t_8 = __Pyx_div_long(__pyx_v_j, 2);
-      __pyx_t_7 = 1;
-      __pyx_t_12 = __pyx_v_i;
-      __pyx_t_11 = __pyx_v_j;
-      __pyx_t_10 = 1;
-      *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_new_motion_vector.data + __pyx_t_12 * __pyx_v_new_motion_vector.strides[0]) ) + __pyx_t_11 * __pyx_v_new_motion_vector.strides[1]) ) + __pyx_t_10 * __pyx_v_new_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_9 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_8 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_7 * __pyx_v_motion_vector.strides[2]) ))) * 2);
-    }
+  __pyx_t_1 = (__pyx_v_h - __pyx_v_tile_size);
+  if (unlikely(__pyx_v_stride == 0)) {
+    #ifdef WITH_THREAD
+    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+    #endif
+    PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
+    #ifdef WITH_THREAD
+    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+    #endif
+    __PYX_ERR(0, 82, __pyx_L1_error)
   }
+  else if (sizeof(int) == sizeof(long) && (!(((int)-1) > 0)) && unlikely(__pyx_v_stride == (int)-1)  && unlikely(__Pyx_UNARY_NEG_WOULD_OVERFLOW(__pyx_t_1))) {
+    #ifdef WITH_THREAD
+    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+    #endif
+    PyErr_SetString(PyExc_OverflowError, "value too large to perform division");
+    #ifdef WITH_THREAD
+    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+    #endif
+    __PYX_ERR(0, 82, __pyx_L1_error)
+  }
+  __pyx_v_num_tiles_x = (__Pyx_div_int(__pyx_t_1, __pyx_v_stride) + 1);
 
-  /* "hdrplus.pyx":41
+  /* "hdrplus.pyx":85
+ *     cdef int thread_idx
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ *     cdef float min_diff = 1000.0, diff = 0.0             # <<<<<<<<<<<<<<
+ *     for thread_idx in prange(num_tiles_x):
+ *         min_diff = 1000.0
+ */
+  __pyx_v_min_diff = 1000.0;
+  __pyx_v_diff = 0.0;
+
+  /* "hdrplus.pyx":86
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ *     cdef float min_diff = 1000.0, diff = 0.0
+ *     for thread_idx in prange(num_tiles_x):             # <<<<<<<<<<<<<<
+ *         min_diff = 1000.0
+ *         i = thread_idx * stride
+ */
+  {
+      #ifdef WITH_THREAD
+      PyThreadState *_save;
+      _save = NULL;
+      if (PyGILState_Check()) {
+        Py_UNBLOCK_THREADS
+      }
+      __Pyx_FastGIL_Remember();
+      #endif
+      /*try:*/ {
+        __pyx_t_1 = __pyx_v_num_tiles_x;
+        {
+            int __pyx_parallel_temp0 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp1 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp2 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp3 = ((int)0xbad0bad0);
+            float __pyx_parallel_temp4 = ((float)__PYX_NAN());
+            int __pyx_parallel_temp5 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp6 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp7 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp8 = ((int)0xbad0bad0);
+            float __pyx_parallel_temp9 = ((float)__PYX_NAN());
+            int __pyx_parallel_temp10 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp11 = ((int)0xbad0bad0);
+            int __pyx_parallel_temp12 = ((int)0xbad0bad0);
+            const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
+            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            int __pyx_parallel_why;
+            __pyx_parallel_why = 0;
+            #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+                #undef likely
+                #undef unlikely
+                #define likely(x)   (x)
+                #define unlikely(x) (x)
+            #endif
+            __pyx_t_3 = (__pyx_t_1 - 0 + 1 - 1/abs(1)) / 1;
+            if (__pyx_t_3 > 0)
+            {
+                #ifdef _OPENMP
+                #pragma omp parallel private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_15, __pyx_t_16, __pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_22, __pyx_t_23, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7, __pyx_t_8, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #endif /* _OPENMP */
+                {
+                    #ifdef _OPENMP
+                    #ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    Py_BEGIN_ALLOW_THREADS
+                    #endif /* _OPENMP */
+                    #ifdef _OPENMP
+                    #pragma omp for lastprivate(__pyx_v_best_dx) lastprivate(__pyx_v_best_dy) lastprivate(__pyx_v_cim_x) lastprivate(__pyx_v_cim_y) lastprivate(__pyx_v_diff) lastprivate(__pyx_v_dx) lastprivate(__pyx_v_dy) lastprivate(__pyx_v_i) lastprivate(__pyx_v_j) lastprivate(__pyx_v_min_diff) firstprivate(__pyx_v_thread_idx) lastprivate(__pyx_v_thread_idx) lastprivate(__pyx_v_x) lastprivate(__pyx_v_y)
+                    #endif /* _OPENMP */
+                    for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_3; __pyx_t_2++){
+                        if (__pyx_parallel_why < 2)
+                        {
+                            __pyx_v_thread_idx = (int)(0 + 1 * __pyx_t_2);
+                            /* Initialize private variables to invalid values */
+                            __pyx_v_best_dx = ((int)0xbad0bad0);
+                            __pyx_v_best_dy = ((int)0xbad0bad0);
+                            __pyx_v_cim_x = ((int)0xbad0bad0);
+                            __pyx_v_cim_y = ((int)0xbad0bad0);
+                            __pyx_v_diff = ((float)__PYX_NAN());
+                            __pyx_v_dx = ((int)0xbad0bad0);
+                            __pyx_v_dy = ((int)0xbad0bad0);
+                            __pyx_v_i = ((int)0xbad0bad0);
+                            __pyx_v_j = ((int)0xbad0bad0);
+                            __pyx_v_min_diff = ((float)__PYX_NAN());
+                            __pyx_v_x = ((int)0xbad0bad0);
+                            __pyx_v_y = ((int)0xbad0bad0);
+
+                            /* "hdrplus.pyx":87
+ *     cdef float min_diff = 1000.0, diff = 0.0
+ *     for thread_idx in prange(num_tiles_x):
+ *         min_diff = 1000.0             # <<<<<<<<<<<<<<
+ *         i = thread_idx * stride
+ *         for j from 0 <= j < w by stride:
+ */
+                            __pyx_v_min_diff = 1000.0;
+
+                            /* "hdrplus.pyx":88
+ *     for thread_idx in prange(num_tiles_x):
+ *         min_diff = 1000.0
+ *         i = thread_idx * stride             # <<<<<<<<<<<<<<
+ *         for j from 0 <= j < w by stride:
+ *             min_diff = 1000.0
+ */
+                            __pyx_v_i = (__pyx_v_thread_idx * __pyx_v_stride);
+
+                            /* "hdrplus.pyx":89
+ *         min_diff = 1000.0
+ *         i = thread_idx * stride
+ *         for j from 0 <= j < w by stride:             # <<<<<<<<<<<<<<
+ *             min_diff = 1000.0
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ */
+                            __pyx_t_4 = __pyx_v_w;
+                            __pyx_t_5 = __pyx_v_stride;
+                            for (__pyx_v_j = 0; __pyx_v_j < __pyx_t_4; __pyx_v_j+=__pyx_t_5) {
+
+                              /* "hdrplus.pyx":90
+ *         i = thread_idx * stride
+ *         for j from 0 <= j < w by stride:
+ *             min_diff = 1000.0             # <<<<<<<<<<<<<<
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ */
+                              __pyx_v_min_diff = 1000.0;
+
+                              /* "hdrplus.pyx":91
+ *         for j from 0 <= j < w by stride:
+ *             min_diff = 1000.0
+ *             for dx from -search_radius <= dx < search_radius by 1:             # <<<<<<<<<<<<<<
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ */
+                              __pyx_t_6 = __pyx_v_search_radius;
+                              for (__pyx_v_dx = (-__pyx_v_search_radius); __pyx_v_dx < __pyx_t_6; __pyx_v_dx+=1) {
+
+                                /* "hdrplus.pyx":92
+ *             min_diff = 1000.0
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:             # <<<<<<<<<<<<<<
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ *                         continue
+ */
+                                __pyx_t_7 = __pyx_v_search_radius;
+                                for (__pyx_v_dy = (-__pyx_v_search_radius); __pyx_v_dy < __pyx_t_7; __pyx_v_dy+=1) {
+
+                                  /* "hdrplus.pyx":93
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:             # <<<<<<<<<<<<<<
+ *                         continue
+ *                     diff = 0.0
+ */
+                                  __pyx_t_9 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_11 = 0;
+                                  __pyx_t_12 = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_i) + __pyx_v_dx) < 0);
+                                  if (!__pyx_t_12) {
+                                  } else {
+                                    __pyx_t_8 = __pyx_t_12;
+                                    goto __pyx_L17_bool_binop_done;
+                                  }
+                                  __pyx_t_11 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_9 = 0;
+                                  __pyx_t_12 = (((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dx) + __pyx_v_i) + __pyx_v_tile_size) >= __pyx_v_h);
+                                  if (!__pyx_t_12) {
+                                  } else {
+                                    __pyx_t_8 = __pyx_t_12;
+                                    goto __pyx_L17_bool_binop_done;
+                                  }
+                                  __pyx_t_9 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_11 = 1;
+                                  __pyx_t_12 = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_j) + __pyx_v_dy) < 0);
+                                  if (!__pyx_t_12) {
+                                  } else {
+                                    __pyx_t_8 = __pyx_t_12;
+                                    goto __pyx_L17_bool_binop_done;
+                                  }
+                                  __pyx_t_11 = __pyx_v_i;
+                                  __pyx_t_10 = __pyx_v_j;
+                                  __pyx_t_9 = 1;
+                                  __pyx_t_12 = (((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dy) + __pyx_v_j) + __pyx_v_tile_size) >= __pyx_v_w);
+                                  __pyx_t_8 = __pyx_t_12;
+                                  __pyx_L17_bool_binop_done:;
+                                  if (__pyx_t_8) {
+
+                                    /* "hdrplus.pyx":94
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ *                         continue             # <<<<<<<<<<<<<<
+ *                     diff = 0.0
+ *                     for x in range(tile_size):
+ */
+                                    goto __pyx_L14_continue;
+
+                                    /* "hdrplus.pyx":93
+ *             for dx from -search_radius <= dx < search_radius by 1:
+ *                 for dy from -search_radius <= dy < search_radius by 1:
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:             # <<<<<<<<<<<<<<
+ *                         continue
+ *                     diff = 0.0
+ */
+                                  }
+
+                                  /* "hdrplus.pyx":95
+ *                     if pre_alignment[i, j, 0] + i + dx < 0 or pre_alignment[i, j, 0] + dx + i + tile_size >= h or pre_alignment[i, j, 1] + j + dy < 0 or pre_alignment[i, j, 1] + dy + j + tile_size >= w:
+ *                         continue
+ *                     diff = 0.0             # <<<<<<<<<<<<<<
+ *                     for x in range(tile_size):
+ *                         for y in range(tile_size):
+ */
+                                  __pyx_v_diff = 0.0;
+
+                                  /* "hdrplus.pyx":96
+ *                         continue
+ *                     diff = 0.0
+ *                     for x in range(tile_size):             # <<<<<<<<<<<<<<
+ *                         for y in range(tile_size):
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ */
+                                  __pyx_t_13 = __pyx_v_tile_size;
+                                  __pyx_t_14 = __pyx_t_13;
+                                  for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
+                                    __pyx_v_x = __pyx_t_15;
+
+                                    /* "hdrplus.pyx":97
+ *                     diff = 0.0
+ *                     for x in range(tile_size):
+ *                         for y in range(tile_size):             # <<<<<<<<<<<<<<
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ */
+                                    __pyx_t_16 = __pyx_v_tile_size;
+                                    __pyx_t_17 = __pyx_t_16;
+                                    for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
+                                      __pyx_v_y = __pyx_t_18;
+
+                                      /* "hdrplus.pyx":98
+ *                     for x in range(tile_size):
+ *                         for y in range(tile_size):
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i             # <<<<<<<<<<<<<<
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             diff = diff + (ref_im[i + x, j + y] - comp_im[cim_x, cim_y]) * (ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
+ */
+                                      __pyx_t_9 = __pyx_v_i;
+                                      __pyx_t_10 = __pyx_v_j;
+                                      __pyx_t_11 = 0;
+                                      __pyx_v_cim_x = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_9 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_11 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dx) + __pyx_v_x) + __pyx_v_i);
+
+                                      /* "hdrplus.pyx":99
+ *                         for y in range(tile_size):
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j             # <<<<<<<<<<<<<<
+ *                             diff = diff + (ref_im[i + x, j + y] - comp_im[cim_x, cim_y]) * (ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
+ *                     if diff < min_diff:
+ */
+                                      __pyx_t_11 = __pyx_v_i;
+                                      __pyx_t_10 = __pyx_v_j;
+                                      __pyx_t_9 = 1;
+                                      __pyx_v_cim_y = ((((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_11 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_10 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_9 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_dy) + __pyx_v_y) + __pyx_v_j);
+
+                                      /* "hdrplus.pyx":100
+ *                             cim_x = pre_alignment[i, j, 0] + dx + x + i
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             diff = diff + (ref_im[i + x, j + y] - comp_im[cim_x, cim_y]) * (ref_im[i + x, j + y] - comp_im[cim_x, cim_y])             # <<<<<<<<<<<<<<
+ *                     if diff < min_diff:
+ *                         min_diff = diff
+ */
+                                      __pyx_t_9 = (__pyx_v_i + __pyx_v_x);
+                                      __pyx_t_10 = (__pyx_v_j + __pyx_v_y);
+                                      __pyx_t_11 = __pyx_v_cim_x;
+                                      __pyx_t_19 = __pyx_v_cim_y;
+                                      __pyx_t_20 = (__pyx_v_i + __pyx_v_x);
+                                      __pyx_t_21 = (__pyx_v_j + __pyx_v_y);
+                                      __pyx_t_22 = __pyx_v_cim_x;
+                                      __pyx_t_23 = __pyx_v_cim_y;
+                                      __pyx_v_diff = (__pyx_v_diff + (((*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_ref_im.data + __pyx_t_9 * __pyx_v_ref_im.strides[0]) ) + __pyx_t_10 * __pyx_v_ref_im.strides[1]) ))) - (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_im.data + __pyx_t_11 * __pyx_v_comp_im.strides[0]) ) + __pyx_t_19 * __pyx_v_comp_im.strides[1]) )))) * ((*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_ref_im.data + __pyx_t_20 * __pyx_v_ref_im.strides[0]) ) + __pyx_t_21 * __pyx_v_ref_im.strides[1]) ))) - (*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_im.data + __pyx_t_22 * __pyx_v_comp_im.strides[0]) ) + __pyx_t_23 * __pyx_v_comp_im.strides[1]) ))))));
+                                    }
+                                  }
+
+                                  /* "hdrplus.pyx":101
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             diff = diff + (ref_im[i + x, j + y] - comp_im[cim_x, cim_y]) * (ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
+ *                     if diff < min_diff:             # <<<<<<<<<<<<<<
+ *                         min_diff = diff
+ *                         best_dx = dx
+ */
+                                  __pyx_t_8 = (__pyx_v_diff < __pyx_v_min_diff);
+                                  if (__pyx_t_8) {
+
+                                    /* "hdrplus.pyx":102
+ *                             diff = diff + (ref_im[i + x, j + y] - comp_im[cim_x, cim_y]) * (ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
+ *                     if diff < min_diff:
+ *                         min_diff = diff             # <<<<<<<<<<<<<<
+ *                         best_dx = dx
+ *                         best_dy = dy
+ */
+                                    __pyx_v_min_diff = __pyx_v_diff;
+
+                                    /* "hdrplus.pyx":103
+ *                     if diff < min_diff:
+ *                         min_diff = diff
+ *                         best_dx = dx             # <<<<<<<<<<<<<<
+ *                         best_dy = dy
+ *             for x in range(stride):
+ */
+                                    __pyx_v_best_dx = __pyx_v_dx;
+
+                                    /* "hdrplus.pyx":104
+ *                         min_diff = diff
+ *                         best_dx = dx
+ *                         best_dy = dy             # <<<<<<<<<<<<<<
+ *             for x in range(stride):
+ *                 for y in range(stride):
+ */
+                                    __pyx_v_best_dy = __pyx_v_dy;
+
+                                    /* "hdrplus.pyx":101
+ *                             cim_y = pre_alignment[i, j, 1] + dy + y + j
+ *                             diff = diff + (ref_im[i + x, j + y] - comp_im[cim_x, cim_y]) * (ref_im[i + x, j + y] - comp_im[cim_x, cim_y])
+ *                     if diff < min_diff:             # <<<<<<<<<<<<<<
+ *                         min_diff = diff
+ *                         best_dx = dx
+ */
+                                  }
+                                  __pyx_L14_continue:;
+                                }
+                              }
+
+                              /* "hdrplus.pyx":105
+ *                         best_dx = dx
+ *                         best_dy = dy
+ *             for x in range(stride):             # <<<<<<<<<<<<<<
+ *                 for y in range(stride):
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ */
+                              __pyx_t_6 = __pyx_v_stride;
+                              __pyx_t_7 = __pyx_t_6;
+                              for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_7; __pyx_t_13+=1) {
+                                __pyx_v_x = __pyx_t_13;
+
+                                /* "hdrplus.pyx":106
+ *                         best_dy = dy
+ *             for x in range(stride):
+ *                 for y in range(stride):             # <<<<<<<<<<<<<<
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
+ */
+                                __pyx_t_14 = __pyx_v_stride;
+                                __pyx_t_15 = __pyx_t_14;
+                                for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
+                                  __pyx_v_y = __pyx_t_16;
+
+                                  /* "hdrplus.pyx":107
+ *             for x in range(stride):
+ *                 for y in range(stride):
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx             # <<<<<<<<<<<<<<
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
+ *                     err_map[i + x, j + y] = min_diff / (tile_size * tile_size)
+ */
+                                  __pyx_t_23 = __pyx_v_i;
+                                  __pyx_t_22 = __pyx_v_j;
+                                  __pyx_t_21 = 0;
+                                  __pyx_t_20 = (__pyx_v_i + __pyx_v_x);
+                                  __pyx_t_19 = (__pyx_v_j + __pyx_v_y);
+                                  __pyx_t_11 = 0;
+                                  *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_20 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_19 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_11 * __pyx_v_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_23 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_22 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_21 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_best_dx);
+
+                                  /* "hdrplus.pyx":108
+ *                 for y in range(stride):
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy             # <<<<<<<<<<<<<<
+ *                     err_map[i + x, j + y] = min_diff / (tile_size * tile_size)
+ * @cython.boundscheck(False)
+ */
+                                  __pyx_t_21 = __pyx_v_i;
+                                  __pyx_t_22 = __pyx_v_j;
+                                  __pyx_t_23 = 1;
+                                  __pyx_t_11 = (__pyx_v_i + __pyx_v_x);
+                                  __pyx_t_19 = (__pyx_v_j + __pyx_v_y);
+                                  __pyx_t_20 = 1;
+                                  *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_11 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_19 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_20 * __pyx_v_motion_vector.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_21 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_22 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_23 * __pyx_v_pre_alignment.strides[2]) ))) + __pyx_v_best_dy);
+
+                                  /* "hdrplus.pyx":109
+ *                     motion_vector[i + x, j + y, 0] = pre_alignment[i, j, 0] + best_dx
+ *                     motion_vector[i + x, j + y, 1] = pre_alignment[i, j, 1] + best_dy
+ *                     err_map[i + x, j + y] = min_diff / (tile_size * tile_size)             # <<<<<<<<<<<<<<
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cdef void upsamle_motion_vector(int[:,:,:] motion_vector, int[:,:,:] new_motion_vector, int new_h, int new_w) nogil:             # <<<<<<<<<<<<<<
- *     cdef int i, j
- *     for i in range(new_h):
+ */
+                                  __pyx_t_17 = (__pyx_v_tile_size * __pyx_v_tile_size);
+                                  if (unlikely(__pyx_t_17 == 0)) {
+                                    #ifdef WITH_THREAD
+                                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                                    #endif
+                                    PyErr_SetString(PyExc_ZeroDivisionError, "float division");
+                                    #ifdef WITH_THREAD
+                                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                                    #endif
+                                    __PYX_ERR(0, 109, __pyx_L8_error)
+                                  }
+                                  __pyx_t_23 = (__pyx_v_i + __pyx_v_x);
+                                  __pyx_t_22 = (__pyx_v_j + __pyx_v_y);
+                                  *((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_err_map.data + __pyx_t_23 * __pyx_v_err_map.strides[0]) ) + __pyx_t_22 * __pyx_v_err_map.strides[1]) )) = (__pyx_v_min_diff / ((float)__pyx_t_17));
+                                }
+                              }
+                            }
+                            goto __pyx_L31;
+                            __pyx_L8_error:;
+                            {
+                                #ifdef WITH_THREAD
+                                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                                #endif
+                                #ifdef _OPENMP
+                                #pragma omp flush(__pyx_parallel_exc_type)
+                                #endif /* _OPENMP */
+                                if (!__pyx_parallel_exc_type) {
+                                  __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                                  __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
+                                  __Pyx_GOTREF(__pyx_parallel_exc_type);
+                                }
+                                #ifdef WITH_THREAD
+                                __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                                #endif
+                            }
+                            __pyx_parallel_why = 4;
+                            goto __pyx_L30;
+                            __pyx_L30:;
+                            #ifdef _OPENMP
+                            #pragma omp critical(__pyx_parallel_lastprivates2)
+                            #endif /* _OPENMP */
+                            {
+                                __pyx_parallel_temp0 = __pyx_v_best_dx;
+                                __pyx_parallel_temp1 = __pyx_v_best_dy;
+                                __pyx_parallel_temp2 = __pyx_v_cim_x;
+                                __pyx_parallel_temp3 = __pyx_v_cim_y;
+                                __pyx_parallel_temp4 = __pyx_v_diff;
+                                __pyx_parallel_temp5 = __pyx_v_dx;
+                                __pyx_parallel_temp6 = __pyx_v_dy;
+                                __pyx_parallel_temp7 = __pyx_v_i;
+                                __pyx_parallel_temp8 = __pyx_v_j;
+                                __pyx_parallel_temp9 = __pyx_v_min_diff;
+                                __pyx_parallel_temp10 = __pyx_v_thread_idx;
+                                __pyx_parallel_temp11 = __pyx_v_x;
+                                __pyx_parallel_temp12 = __pyx_v_y;
+                            }
+                            __pyx_L31:;
+                            #ifdef _OPENMP
+                            #pragma omp flush(__pyx_parallel_why)
+                            #endif /* _OPENMP */
+                        }
+                    }
+                    #ifdef _OPENMP
+                    Py_END_ALLOW_THREADS
+                    #else
+{
+#ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    #endif /* _OPENMP */
+                    /* Clean up any temporaries */
+                    #ifdef WITH_THREAD
+                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                    #endif
+                    #ifndef _OPENMP
+}
+#endif /* _OPENMP */
+                }
+            }
+            if (__pyx_parallel_exc_type) {
+              /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
+              __pyx_parallel_why = 4;
+            }
+            if (__pyx_parallel_why) {
+              __pyx_v_best_dx = __pyx_parallel_temp0;
+              __pyx_v_best_dy = __pyx_parallel_temp1;
+              __pyx_v_cim_x = __pyx_parallel_temp2;
+              __pyx_v_cim_y = __pyx_parallel_temp3;
+              __pyx_v_diff = __pyx_parallel_temp4;
+              __pyx_v_dx = __pyx_parallel_temp5;
+              __pyx_v_dy = __pyx_parallel_temp6;
+              __pyx_v_i = __pyx_parallel_temp7;
+              __pyx_v_j = __pyx_parallel_temp8;
+              __pyx_v_min_diff = __pyx_parallel_temp9;
+              __pyx_v_thread_idx = __pyx_parallel_temp10;
+              __pyx_v_x = __pyx_parallel_temp11;
+              __pyx_v_y = __pyx_parallel_temp12;
+              switch (__pyx_parallel_why) {
+                    case 4:
+                {
+                    #ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
+                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                    __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
+                    #ifdef WITH_THREAD
+                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                    #endif
+                }
+                goto __pyx_L4_error;
+              }
+            }
+        }
+        #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+            #undef likely
+            #undef unlikely
+            #define likely(x)   __builtin_expect(!!(x), 1)
+            #define unlikely(x) __builtin_expect(!!(x), 0)
+        #endif
+      }
+
+      /* "hdrplus.pyx":86
+ *     cdef int best_dx, best_dy, i, j, cim_x, cim_y, dx, dy, x, y
+ *     cdef float min_diff = 1000.0, diff = 0.0
+ *     for thread_idx in prange(num_tiles_x):             # <<<<<<<<<<<<<<
+ *         min_diff = 1000.0
+ *         i = thread_idx * stride
+ */
+      /*finally:*/ {
+        /*normal exit:*/{
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          if (_save) {
+            Py_BLOCK_THREADS
+          }
+          #endif
+          goto __pyx_L5;
+        }
+        __pyx_L4_error: {
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          if (_save) {
+            Py_BLOCK_THREADS
+          }
+          #endif
+          goto __pyx_L1_error;
+        }
+        __pyx_L5:;
+      }
+  }
+
+  /* "hdrplus.pyx":80
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * cpdef void align_image_l2(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
  */
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  #ifdef WITH_THREAD
+  __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+  #endif
+  __Pyx_AddTraceback("hdrplus.align_image_l2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  #ifdef WITH_THREAD
+  __Pyx_PyGILState_Release(__pyx_gilstate_save);
+  #endif
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContextNogil()
 }
 
-/* "hdrplus.pyx":87
+/* Python wrapper */
+static PyObject *__pyx_pw_7hdrplus_5align_image_l2(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_7hdrplus_5align_image_l2 = {"align_image_l2", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7hdrplus_5align_image_l2, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7hdrplus_5align_image_l2(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  __Pyx_memviewslice __pyx_v_ref_im = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_comp_im = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_pre_alignment = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_search_radius;
+  int __pyx_v_tile_size;
+  int __pyx_v_h;
+  int __pyx_v_w;
+  __Pyx_memviewslice __pyx_v_motion_vector = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_err_map = { 0, 0, { 0 }, { 0 }, { 0 } };
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[9] = {0,0,0,0,0,0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("align_image_l2 (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_MACROS
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_ref_im,&__pyx_n_s_comp_im,&__pyx_n_s_pre_alignment,&__pyx_n_s_search_radius,&__pyx_n_s_tile_size,&__pyx_n_s_h,&__pyx_n_s_w,&__pyx_n_s_motion_vector,&__pyx_n_s_err_map,0};
+    if (__pyx_kwds) {
+      Py_ssize_t kw_args;
+      switch (__pyx_nargs) {
+        case  9: values[8] = __Pyx_Arg_FASTCALL(__pyx_args, 8);
+        CYTHON_FALLTHROUGH;
+        case  8: values[7] = __Pyx_Arg_FASTCALL(__pyx_args, 7);
+        CYTHON_FALLTHROUGH;
+        case  7: values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
+        case  6: values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
+        CYTHON_FALLTHROUGH;
+        case  5: values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = __Pyx_NumKwargs_FASTCALL(__pyx_kwds);
+      switch (__pyx_nargs) {
+        case  0:
+        if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_ref_im)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_comp_im)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 1); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_pre_alignment)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 2); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (likely((values[3] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_search_radius)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 3); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_tile_size)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 4); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  5:
+        if (likely((values[5] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_h)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 5); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (likely((values[6] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_w)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[6]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 6); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  7:
+        if (likely((values[7] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_motion_vector)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[7]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 7); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  8:
+        if (likely((values[8] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_err_map)) != 0)) {
+          (void)__Pyx_Arg_NewRef_FASTCALL(values[8]);
+          kw_args--;
+        }
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+        else {
+          __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, 8); __PYX_ERR(0, 80, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        const Py_ssize_t kwd_pos_args = __pyx_nargs;
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "align_image_l2") < 0)) __PYX_ERR(0, 80, __pyx_L3_error)
+      }
+    } else if (unlikely(__pyx_nargs != 9)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_Arg_FASTCALL(__pyx_args, 0);
+      values[1] = __Pyx_Arg_FASTCALL(__pyx_args, 1);
+      values[2] = __Pyx_Arg_FASTCALL(__pyx_args, 2);
+      values[3] = __Pyx_Arg_FASTCALL(__pyx_args, 3);
+      values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
+      values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
+      values[6] = __Pyx_Arg_FASTCALL(__pyx_args, 6);
+      values[7] = __Pyx_Arg_FASTCALL(__pyx_args, 7);
+      values[8] = __Pyx_Arg_FASTCALL(__pyx_args, 8);
+    }
+    __pyx_v_ref_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ref_im.memview)) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_comp_im = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_im.memview)) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_pre_alignment = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pre_alignment.memview)) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_search_radius = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_search_radius == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_tile_size = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_tile_size == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_h = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_h == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_w = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_w == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_motion_vector = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_motion_vector.memview)) __PYX_ERR(0, 80, __pyx_L3_error)
+    __pyx_v_err_map = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(values[8], PyBUF_WRITABLE); if (unlikely(!__pyx_v_err_map.memview)) __PYX_ERR(0, 80, __pyx_L3_error)
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("align_image_l2", 1, 9, 9, __pyx_nargs); __PYX_ERR(0, 80, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_ref_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_comp_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_pre_alignment, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_motion_vector, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_err_map, 1);
+  __Pyx_AddTraceback("hdrplus.align_image_l2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_7hdrplus_4align_image_l2(__pyx_self, __pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map);
+
+  /* function exit code */
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_ref_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_comp_im, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_pre_alignment, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_motion_vector, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_v_err_map, 1);
+  {
+    Py_ssize_t __pyx_temp;
+    for (__pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
+    }
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_7hdrplus_4align_image_l2(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_ref_im, __Pyx_memviewslice __pyx_v_comp_im, __Pyx_memviewslice __pyx_v_pre_alignment, int __pyx_v_search_radius, int __pyx_v_tile_size, int __pyx_v_h, int __pyx_v_w, __Pyx_memviewslice __pyx_v_motion_vector, __Pyx_memviewslice __pyx_v_err_map) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("align_image_l2", 1);
+  __Pyx_XDECREF(__pyx_r);
+  if (unlikely(!__pyx_v_ref_im.memview)) { __Pyx_RaiseUnboundLocalError("ref_im"); __PYX_ERR(0, 80, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_comp_im.memview)) { __Pyx_RaiseUnboundLocalError("comp_im"); __PYX_ERR(0, 80, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_pre_alignment.memview)) { __Pyx_RaiseUnboundLocalError("pre_alignment"); __PYX_ERR(0, 80, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_motion_vector.memview)) { __Pyx_RaiseUnboundLocalError("motion_vector"); __PYX_ERR(0, 80, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_err_map.memview)) { __Pyx_RaiseUnboundLocalError("err_map"); __PYX_ERR(0, 80, __pyx_L1_error) }
+  __pyx_f_7hdrplus_align_image_l2(__pyx_v_ref_im, __pyx_v_comp_im, __pyx_v_pre_alignment, __pyx_v_search_radius, __pyx_v_tile_size, __pyx_v_h, __pyx_v_w, __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("hdrplus.align_image_l2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "hdrplus.pyx":112
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef void align_and_merge_2im(float[:,:,:] comp_feature, float[:,:,:] ref_feature, float[:,:,:,:] comp_input, float[:,:,:,:] comp_output, cython.int[:] pyr_h, cython.int[:] pyr_w):             # <<<<<<<<<<<<<<
@@ -18500,7 +20354,7 @@ static void __pyx_f_7hdrplus_upsamle_motion_vector(__Pyx_memviewslice __pyx_v_mo
  *     # comp_feature: level, height, width
  */
 
-static PyObject *__pyx_pw_7hdrplus_3align_and_merge_2im(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_7hdrplus_7align_and_merge_2im(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18512,6 +20366,7 @@ static void __pyx_f_7hdrplus_align_and_merge_2im(__Pyx_memviewslice __pyx_v_comp
   int __pyx_v_x;
   int __pyx_v_y;
   int __pyx_v_t;
+  CYTHON_UNUSED int __pyx_v_lvl_h;
   int __pyx_v_num_level;
   int __pyx_v_im_h;
   int __pyx_v_im_w;
@@ -18530,10 +20385,10 @@ static void __pyx_f_7hdrplus_align_and_merge_2im(__Pyx_memviewslice __pyx_v_comp
   int __pyx_t_8;
   int __pyx_t_9;
   int __pyx_t_10;
-  __Pyx_memviewslice __pyx_t_11 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  Py_ssize_t __pyx_t_12;
+  int __pyx_t_11;
+  __Pyx_memviewslice __pyx_t_12 = { 0, 0, { 0 }, { 0 }, { 0 } };
   Py_ssize_t __pyx_t_13;
-  int __pyx_t_14;
+  Py_ssize_t __pyx_t_14;
   int __pyx_t_15;
   int __pyx_t_16;
   int __pyx_t_17;
@@ -18560,17 +20415,17 @@ static void __pyx_f_7hdrplus_align_and_merge_2im(__Pyx_memviewslice __pyx_v_comp
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("align_and_merge_2im", 1);
 
-  /* "hdrplus.pyx":93
+  /* "hdrplus.pyx":118
  *     # comp_output: channel, level, height, width
- *     cdef int lvl, j, x, y, t
+ *     cdef int lvl, j, x, y, t, lvl_h
  *     cdef int num_level = comp_feature.shape[0]             # <<<<<<<<<<<<<<
  *     cdef int im_h = ref_feature.shape[1]
  *     cdef int im_w = ref_feature.shape[2]
  */
   __pyx_v_num_level = (__pyx_v_comp_feature.shape[0]);
 
-  /* "hdrplus.pyx":94
- *     cdef int lvl, j, x, y, t
+  /* "hdrplus.pyx":119
+ *     cdef int lvl, j, x, y, t, lvl_h
  *     cdef int num_level = comp_feature.shape[0]
  *     cdef int im_h = ref_feature.shape[1]             # <<<<<<<<<<<<<<
  *     cdef int im_w = ref_feature.shape[2]
@@ -18578,7 +20433,7 @@ static void __pyx_f_7hdrplus_align_and_merge_2im(__Pyx_memviewslice __pyx_v_comp
  */
   __pyx_v_im_h = (__pyx_v_ref_feature.shape[1]);
 
-  /* "hdrplus.pyx":95
+  /* "hdrplus.pyx":120
  *     cdef int num_level = comp_feature.shape[0]
  *     cdef int im_h = ref_feature.shape[1]
  *     cdef int im_w = ref_feature.shape[2]             # <<<<<<<<<<<<<<
@@ -18587,191 +20442,201 @@ static void __pyx_f_7hdrplus_align_and_merge_2im(__Pyx_memviewslice __pyx_v_comp
  */
   __pyx_v_im_w = (__pyx_v_ref_feature.shape[2]);
 
-  /* "hdrplus.pyx":96
+  /* "hdrplus.pyx":121
  *     cdef int im_h = ref_feature.shape[1]
  *     cdef int im_w = ref_feature.shape[2]
  *     cdef int[:,:,:] pre_alignment = np.zeros((im_h, im_w, 2), dtype=np.int32)             # <<<<<<<<<<<<<<
  *     cdef int[:,:,:] motion_vector = np.zeros((im_h, im_w, 2), dtype=np.int32)
  *     cdef float[:,:] err_map = np.zeros((im_h, im_w), dtype=np.float32)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_im_h); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_im_h); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_im_w); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_im_w); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error);
   __Pyx_INCREF(__pyx_int_2);
   __Pyx_GIVEREF(__pyx_int_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_int_2)) __PYX_ERR(0, 96, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_int_2)) __PYX_ERR(0, 121, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_int32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_pre_alignment = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "hdrplus.pyx":97
+  /* "hdrplus.pyx":122
  *     cdef int im_w = ref_feature.shape[2]
  *     cdef int[:,:,:] pre_alignment = np.zeros((im_h, im_w, 2), dtype=np.int32)
  *     cdef int[:,:,:] motion_vector = np.zeros((im_h, im_w, 2), dtype=np.int32)             # <<<<<<<<<<<<<<
  *     cdef float[:,:] err_map = np.zeros((im_h, im_w), dtype=np.float32)
  *     cdef int err_idx = comp_output.shape[0] - 1
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_im_h); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_im_h); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_im_w); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_im_w); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5)) __PYX_ERR(0, 97, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error);
   __Pyx_INCREF(__pyx_int_2);
   __Pyx_GIVEREF(__pyx_int_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_int_2)) __PYX_ERR(0, 97, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_int_2)) __PYX_ERR(0, 122, __pyx_L1_error);
   __pyx_t_5 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_int32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_int32); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_int(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_motion_vector = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "hdrplus.pyx":98
+  /* "hdrplus.pyx":123
  *     cdef int[:,:,:] pre_alignment = np.zeros((im_h, im_w, 2), dtype=np.int32)
  *     cdef int[:,:,:] motion_vector = np.zeros((im_h, im_w, 2), dtype=np.int32)
  *     cdef float[:,:] err_map = np.zeros((im_h, im_w), dtype=np.float32)             # <<<<<<<<<<<<<<
  *     cdef int err_idx = comp_output.shape[0] - 1
  *     for lvl in range(num_level):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_im_h); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_im_h); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_im_w); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_im_w); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 123, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float32); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dsds_float(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_err_map = __pyx_t_7;
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "hdrplus.pyx":99
+  /* "hdrplus.pyx":124
  *     cdef int[:,:,:] motion_vector = np.zeros((im_h, im_w, 2), dtype=np.int32)
  *     cdef float[:,:] err_map = np.zeros((im_h, im_w), dtype=np.float32)
  *     cdef int err_idx = comp_output.shape[0] - 1             # <<<<<<<<<<<<<<
  *     for lvl in range(num_level):
- *         align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         if lvl <= 0:
  */
   __pyx_v_err_idx = ((__pyx_v_comp_output.shape[0]) - 1);
 
-  /* "hdrplus.pyx":100
+  /* "hdrplus.pyx":125
  *     cdef float[:,:] err_map = np.zeros((im_h, im_w), dtype=np.float32)
  *     cdef int err_idx = comp_output.shape[0] - 1
  *     for lvl in range(num_level):             # <<<<<<<<<<<<<<
- *         align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
- *         if lvl < (num_level - 1):
+ *         if lvl <= 0:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
  */
   __pyx_t_8 = __pyx_v_num_level;
   __pyx_t_9 = __pyx_t_8;
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_lvl = __pyx_t_10;
 
-    /* "hdrplus.pyx":101
+    /* "hdrplus.pyx":126
  *     cdef int err_idx = comp_output.shape[0] - 1
  *     for lvl in range(num_level):
- *         align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)             # <<<<<<<<<<<<<<
- *         if lvl < (num_level - 1):
- *             for x in range(pyr_h[lvl + 1]):
+ *         if lvl <= 0:             # <<<<<<<<<<<<<<
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         elif lvl == num_level - 1:
  */
-    __pyx_t_7.data = __pyx_v_ref_feature.data;
-    __pyx_t_7.memview = __pyx_v_ref_feature.memview;
-    __PYX_INC_MEMVIEW(&__pyx_t_7, 1);
-    {
+    __pyx_t_11 = (__pyx_v_lvl <= 0);
+    if (__pyx_t_11) {
+
+      /* "hdrplus.pyx":127
+ *     for lvl in range(num_level):
+ *         if lvl <= 0:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)             # <<<<<<<<<<<<<<
+ *         elif lvl == num_level - 1:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ */
+      __pyx_t_7.data = __pyx_v_ref_feature.data;
+      __pyx_t_7.memview = __pyx_v_ref_feature.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_7, 1);
+      {
     Py_ssize_t __pyx_tmp_idx = __pyx_v_lvl;
     Py_ssize_t __pyx_tmp_stride = __pyx_v_ref_feature.strides[0];
         __pyx_t_7.data += __pyx_tmp_idx * __pyx_tmp_stride;
@@ -18785,109 +20650,306 @@ __pyx_t_7.shape[1] = __pyx_v_ref_feature.shape[2];
 __pyx_t_7.strides[1] = __pyx_v_ref_feature.strides[2];
     __pyx_t_7.suboffsets[1] = -1;
 
-__pyx_t_11.data = __pyx_v_comp_feature.data;
-    __pyx_t_11.memview = __pyx_v_comp_feature.memview;
-    __PYX_INC_MEMVIEW(&__pyx_t_11, 1);
-    {
+__pyx_t_12.data = __pyx_v_comp_feature.data;
+      __pyx_t_12.memview = __pyx_v_comp_feature.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_12, 1);
+      {
     Py_ssize_t __pyx_tmp_idx = __pyx_v_lvl;
     Py_ssize_t __pyx_tmp_stride = __pyx_v_comp_feature.strides[0];
-        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
+        __pyx_t_12.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_11.shape[0] = __pyx_v_comp_feature.shape[1];
-__pyx_t_11.strides[0] = __pyx_v_comp_feature.strides[1];
-    __pyx_t_11.suboffsets[0] = -1;
+__pyx_t_12.shape[0] = __pyx_v_comp_feature.shape[1];
+__pyx_t_12.strides[0] = __pyx_v_comp_feature.strides[1];
+    __pyx_t_12.suboffsets[0] = -1;
 
-__pyx_t_11.shape[1] = __pyx_v_comp_feature.shape[2];
-__pyx_t_11.strides[1] = __pyx_v_comp_feature.strides[2];
-    __pyx_t_11.suboffsets[1] = -1;
+__pyx_t_12.shape[1] = __pyx_v_comp_feature.shape[2];
+__pyx_t_12.strides[1] = __pyx_v_comp_feature.strides[2];
+    __pyx_t_12.suboffsets[1] = -1;
 
-__pyx_t_12 = __pyx_v_lvl;
-    __pyx_t_13 = __pyx_v_lvl;
-    __pyx_f_7hdrplus_align_image_l1(__pyx_t_7, __pyx_t_11, __pyx_v_pre_alignment, 8, 8, (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_12 * __pyx_v_pyr_h.strides[0]) ))), (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_13 * __pyx_v_pyr_w.strides[0]) ))), __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 101, __pyx_L1_error)
-    __PYX_XCLEAR_MEMVIEW(&__pyx_t_7, 1);
-    __pyx_t_7.memview = NULL; __pyx_t_7.data = NULL;
-    __PYX_XCLEAR_MEMVIEW(&__pyx_t_11, 1);
-    __pyx_t_11.memview = NULL; __pyx_t_11.data = NULL;
+__pyx_t_13 = __pyx_v_lvl;
+      __pyx_t_14 = __pyx_v_lvl;
+      __pyx_f_7hdrplus_align_image_l1(__pyx_t_7, __pyx_t_12, __pyx_v_pre_alignment, 8, 8, (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_13 * __pyx_v_pyr_h.strides[0]) ))), (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_14 * __pyx_v_pyr_w.strides[0]) ))), __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 127, __pyx_L1_error)
+      __PYX_XCLEAR_MEMVIEW(&__pyx_t_7, 1);
+      __pyx_t_7.memview = NULL; __pyx_t_7.data = NULL;
+      __PYX_XCLEAR_MEMVIEW(&__pyx_t_12, 1);
+      __pyx_t_12.memview = NULL; __pyx_t_12.data = NULL;
 
-    /* "hdrplus.pyx":102
+      /* "hdrplus.pyx":126
+ *     cdef int err_idx = comp_output.shape[0] - 1
  *     for lvl in range(num_level):
- *         align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         if lvl <= 0:             # <<<<<<<<<<<<<<
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         elif lvl == num_level - 1:
+ */
+      goto __pyx_L5;
+    }
+
+    /* "hdrplus.pyx":128
+ *         if lvl <= 0:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         elif lvl == num_level - 1:             # <<<<<<<<<<<<<<
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         else:
+ */
+    __pyx_t_11 = (__pyx_v_lvl == (__pyx_v_num_level - 1));
+    if (__pyx_t_11) {
+
+      /* "hdrplus.pyx":129
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         elif lvl == num_level - 1:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)             # <<<<<<<<<<<<<<
+ *         else:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ */
+      __pyx_t_12.data = __pyx_v_ref_feature.data;
+      __pyx_t_12.memview = __pyx_v_ref_feature.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_12, 1);
+      {
+    Py_ssize_t __pyx_tmp_idx = __pyx_v_lvl;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_ref_feature.strides[0];
+        __pyx_t_12.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_12.shape[0] = __pyx_v_ref_feature.shape[1];
+__pyx_t_12.strides[0] = __pyx_v_ref_feature.strides[1];
+    __pyx_t_12.suboffsets[0] = -1;
+
+__pyx_t_12.shape[1] = __pyx_v_ref_feature.shape[2];
+__pyx_t_12.strides[1] = __pyx_v_ref_feature.strides[2];
+    __pyx_t_12.suboffsets[1] = -1;
+
+__pyx_t_7.data = __pyx_v_comp_feature.data;
+      __pyx_t_7.memview = __pyx_v_comp_feature.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_7, 1);
+      {
+    Py_ssize_t __pyx_tmp_idx = __pyx_v_lvl;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_comp_feature.strides[0];
+        __pyx_t_7.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_7.shape[0] = __pyx_v_comp_feature.shape[1];
+__pyx_t_7.strides[0] = __pyx_v_comp_feature.strides[1];
+    __pyx_t_7.suboffsets[0] = -1;
+
+__pyx_t_7.shape[1] = __pyx_v_comp_feature.shape[2];
+__pyx_t_7.strides[1] = __pyx_v_comp_feature.strides[2];
+    __pyx_t_7.suboffsets[1] = -1;
+
+__pyx_t_14 = __pyx_v_lvl;
+      __pyx_t_13 = __pyx_v_lvl;
+      __pyx_f_7hdrplus_align_image_l1(__pyx_t_12, __pyx_t_7, __pyx_v_pre_alignment, 8, 8, (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_14 * __pyx_v_pyr_h.strides[0]) ))), (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_13 * __pyx_v_pyr_w.strides[0]) ))), __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L1_error)
+      __PYX_XCLEAR_MEMVIEW(&__pyx_t_12, 1);
+      __pyx_t_12.memview = NULL; __pyx_t_12.data = NULL;
+      __PYX_XCLEAR_MEMVIEW(&__pyx_t_7, 1);
+      __pyx_t_7.memview = NULL; __pyx_t_7.data = NULL;
+
+      /* "hdrplus.pyx":128
+ *         if lvl <= 0:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         elif lvl == num_level - 1:             # <<<<<<<<<<<<<<
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         else:
+ */
+      goto __pyx_L5;
+    }
+
+    /* "hdrplus.pyx":131
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         else:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)             # <<<<<<<<<<<<<<
+ *         if lvl < (num_level - 1):
+ *             lvl_h = pyr_h[lvl]
+ */
+    /*else*/ {
+      __pyx_t_7.data = __pyx_v_ref_feature.data;
+      __pyx_t_7.memview = __pyx_v_ref_feature.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_7, 1);
+      {
+    Py_ssize_t __pyx_tmp_idx = __pyx_v_lvl;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_ref_feature.strides[0];
+        __pyx_t_7.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_7.shape[0] = __pyx_v_ref_feature.shape[1];
+__pyx_t_7.strides[0] = __pyx_v_ref_feature.strides[1];
+    __pyx_t_7.suboffsets[0] = -1;
+
+__pyx_t_7.shape[1] = __pyx_v_ref_feature.shape[2];
+__pyx_t_7.strides[1] = __pyx_v_ref_feature.strides[2];
+    __pyx_t_7.suboffsets[1] = -1;
+
+__pyx_t_12.data = __pyx_v_comp_feature.data;
+      __pyx_t_12.memview = __pyx_v_comp_feature.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_12, 1);
+      {
+    Py_ssize_t __pyx_tmp_idx = __pyx_v_lvl;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_comp_feature.strides[0];
+        __pyx_t_12.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_12.shape[0] = __pyx_v_comp_feature.shape[1];
+__pyx_t_12.strides[0] = __pyx_v_comp_feature.strides[1];
+    __pyx_t_12.suboffsets[0] = -1;
+
+__pyx_t_12.shape[1] = __pyx_v_comp_feature.shape[2];
+__pyx_t_12.strides[1] = __pyx_v_comp_feature.strides[2];
+    __pyx_t_12.suboffsets[1] = -1;
+
+__pyx_t_13 = __pyx_v_lvl;
+      __pyx_t_14 = __pyx_v_lvl;
+      __pyx_f_7hdrplus_align_image_l1(__pyx_t_7, __pyx_t_12, __pyx_v_pre_alignment, 8, 8, (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_13 * __pyx_v_pyr_h.strides[0]) ))), (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_14 * __pyx_v_pyr_w.strides[0]) ))), __pyx_v_motion_vector, __pyx_v_err_map, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 131, __pyx_L1_error)
+      __PYX_XCLEAR_MEMVIEW(&__pyx_t_7, 1);
+      __pyx_t_7.memview = NULL; __pyx_t_7.data = NULL;
+      __PYX_XCLEAR_MEMVIEW(&__pyx_t_12, 1);
+      __pyx_t_12.memview = NULL; __pyx_t_12.data = NULL;
+    }
+    __pyx_L5:;
+
+    /* "hdrplus.pyx":132
+ *         else:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
  *         if lvl < (num_level - 1):             # <<<<<<<<<<<<<<
- *             for x in range(pyr_h[lvl + 1]):
+ *             lvl_h = pyr_h[lvl]
+ *             for x in prange(lvl_h, nogil=True):
+ */
+    __pyx_t_11 = (__pyx_v_lvl < (__pyx_v_num_level - 1));
+    if (__pyx_t_11) {
+
+      /* "hdrplus.pyx":133
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+ *         if lvl < (num_level - 1):
+ *             lvl_h = pyr_h[lvl]             # <<<<<<<<<<<<<<
+ *             for x in prange(lvl_h, nogil=True):
  *                 for y in range(pyr_w[lvl + 1]):
  */
-    __pyx_t_14 = (__pyx_v_lvl < (__pyx_v_num_level - 1));
-    if (__pyx_t_14) {
+      __pyx_t_14 = __pyx_v_lvl;
+      __pyx_v_lvl_h = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_14 * __pyx_v_pyr_h.strides[0]) )));
 
-      /* "hdrplus.pyx":103
- *         align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+      /* "hdrplus.pyx":134
  *         if lvl < (num_level - 1):
- *             for x in range(pyr_h[lvl + 1]):             # <<<<<<<<<<<<<<
+ *             lvl_h = pyr_h[lvl]
+ *             for x in prange(lvl_h, nogil=True):             # <<<<<<<<<<<<<<
  *                 for y in range(pyr_w[lvl + 1]):
  *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2
  */
-      __pyx_t_13 = (__pyx_v_lvl + 1);
-      __pyx_t_15 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_13 * __pyx_v_pyr_h.strides[0]) )));
-      __pyx_t_16 = __pyx_t_15;
-      for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
-        __pyx_v_x = __pyx_t_17;
+      {
+          #ifdef WITH_THREAD
+          PyThreadState *_save;
+          _save = NULL;
+          Py_UNBLOCK_THREADS
+          __Pyx_FastGIL_Remember();
+          #endif
+          /*try:*/ {
+            __pyx_t_15 = __pyx_v_lvl_h;
+            {
+                #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+                    #undef likely
+                    #undef unlikely
+                    #define likely(x)   (x)
+                    #define unlikely(x) (x)
+                #endif
+                __pyx_t_17 = (__pyx_t_15 - 0 + 1 - 1/abs(1)) / 1;
+                if (__pyx_t_17 > 0)
+                {
+                    #ifdef _OPENMP
+                    #pragma omp parallel private(__pyx_t_13, __pyx_t_14, __pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_22, __pyx_t_23, __pyx_t_24)
+                    #endif /* _OPENMP */
+                    {
+                        #ifdef _OPENMP
+                        #pragma omp for firstprivate(__pyx_v_x) lastprivate(__pyx_v_x) lastprivate(__pyx_v_y)
+                        #endif /* _OPENMP */
+                        for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_17; __pyx_t_16++){
+                            {
+                                __pyx_v_x = (int)(0 + 1 * __pyx_t_16);
+                                /* Initialize private variables to invalid values */
+                                __pyx_v_y = ((int)0xbad0bad0);
 
-        /* "hdrplus.pyx":104
- *         if lvl < (num_level - 1):
- *             for x in range(pyr_h[lvl + 1]):
+                                /* "hdrplus.pyx":135
+ *             lvl_h = pyr_h[lvl]
+ *             for x in prange(lvl_h, nogil=True):
  *                 for y in range(pyr_w[lvl + 1]):             # <<<<<<<<<<<<<<
  *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2
  *                     pre_alignment[x, y, 1] = motion_vector[x // 2, y // 2, 1] * 2
  */
-        __pyx_t_13 = (__pyx_v_lvl + 1);
-        __pyx_t_18 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_13 * __pyx_v_pyr_w.strides[0]) )));
-        __pyx_t_19 = __pyx_t_18;
-        for (__pyx_t_20 = 0; __pyx_t_20 < __pyx_t_19; __pyx_t_20+=1) {
-          __pyx_v_y = __pyx_t_20;
+                                __pyx_t_14 = (__pyx_v_lvl + 1);
+                                __pyx_t_18 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_14 * __pyx_v_pyr_w.strides[0]) )));
+                                __pyx_t_19 = __pyx_t_18;
+                                for (__pyx_t_20 = 0; __pyx_t_20 < __pyx_t_19; __pyx_t_20+=1) {
+                                  __pyx_v_y = __pyx_t_20;
 
-          /* "hdrplus.pyx":105
- *             for x in range(pyr_h[lvl + 1]):
+                                  /* "hdrplus.pyx":136
+ *             for x in prange(lvl_h, nogil=True):
  *                 for y in range(pyr_w[lvl + 1]):
  *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2             # <<<<<<<<<<<<<<
  *                     pre_alignment[x, y, 1] = motion_vector[x // 2, y // 2, 1] * 2
  *         for t in prange(comp_input.shape[0], nogil=True):
  */
-          __pyx_t_13 = __Pyx_div_long(__pyx_v_x, 2);
-          __pyx_t_12 = __Pyx_div_long(__pyx_v_y, 2);
-          __pyx_t_21 = 0;
-          __pyx_t_22 = __pyx_v_x;
-          __pyx_t_23 = __pyx_v_y;
-          __pyx_t_24 = 0;
-          *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_22 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_23 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_24 * __pyx_v_pre_alignment.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_13 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_12 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[2]) ))) * 2);
+                                  __pyx_t_14 = __Pyx_div_long(__pyx_v_x, 2);
+                                  __pyx_t_13 = __Pyx_div_long(__pyx_v_y, 2);
+                                  __pyx_t_21 = 0;
+                                  __pyx_t_22 = __pyx_v_x;
+                                  __pyx_t_23 = __pyx_v_y;
+                                  __pyx_t_24 = 0;
+                                  *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_22 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_23 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_24 * __pyx_v_pre_alignment.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_14 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_13 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[2]) ))) * 2);
 
-          /* "hdrplus.pyx":106
+                                  /* "hdrplus.pyx":137
  *                 for y in range(pyr_w[lvl + 1]):
  *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2
  *                     pre_alignment[x, y, 1] = motion_vector[x // 2, y // 2, 1] * 2             # <<<<<<<<<<<<<<
  *         for t in prange(comp_input.shape[0], nogil=True):
  *             for x in range(pyr_h[lvl]):
  */
-          __pyx_t_21 = __Pyx_div_long(__pyx_v_x, 2);
-          __pyx_t_12 = __Pyx_div_long(__pyx_v_y, 2);
-          __pyx_t_13 = 1;
-          __pyx_t_24 = __pyx_v_x;
-          __pyx_t_23 = __pyx_v_y;
-          __pyx_t_22 = 1;
-          *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_24 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_23 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_22 * __pyx_v_pre_alignment.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_21 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_12 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_13 * __pyx_v_motion_vector.strides[2]) ))) * 2);
-        }
+                                  __pyx_t_21 = __Pyx_div_long(__pyx_v_x, 2);
+                                  __pyx_t_13 = __Pyx_div_long(__pyx_v_y, 2);
+                                  __pyx_t_14 = 1;
+                                  __pyx_t_24 = __pyx_v_x;
+                                  __pyx_t_23 = __pyx_v_y;
+                                  __pyx_t_22 = 1;
+                                  *((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_pre_alignment.data + __pyx_t_24 * __pyx_v_pre_alignment.strides[0]) ) + __pyx_t_23 * __pyx_v_pre_alignment.strides[1]) ) + __pyx_t_22 * __pyx_v_pre_alignment.strides[2]) )) = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_21 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_13 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_14 * __pyx_v_motion_vector.strides[2]) ))) * 2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+                #undef likely
+                #undef unlikely
+                #define likely(x)   __builtin_expect(!!(x), 1)
+                #define unlikely(x) __builtin_expect(!!(x), 0)
+            #endif
+          }
+
+          /* "hdrplus.pyx":134
+ *         if lvl < (num_level - 1):
+ *             lvl_h = pyr_h[lvl]
+ *             for x in prange(lvl_h, nogil=True):             # <<<<<<<<<<<<<<
+ *                 for y in range(pyr_w[lvl + 1]):
+ *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2
+ */
+          /*finally:*/ {
+            /*normal exit:*/{
+              #ifdef WITH_THREAD
+              __Pyx_FastGIL_Forget();
+              Py_BLOCK_THREADS
+              #endif
+              goto __pyx_L11;
+            }
+            __pyx_L11:;
+          }
       }
 
-      /* "hdrplus.pyx":102
- *     for lvl in range(num_level):
- *         align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
+      /* "hdrplus.pyx":132
+ *         else:
+ *             align_image_l1(ref_feature[lvl], comp_feature[lvl], pre_alignment, 8, 8, pyr_h[lvl], pyr_w[lvl], motion_vector, err_map)
  *         if lvl < (num_level - 1):             # <<<<<<<<<<<<<<
- *             for x in range(pyr_h[lvl + 1]):
- *                 for y in range(pyr_w[lvl + 1]):
+ *             lvl_h = pyr_h[lvl]
+ *             for x in prange(lvl_h, nogil=True):
  */
     }
 
-    /* "hdrplus.pyx":107
+    /* "hdrplus.pyx":138
  *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2
  *                     pre_alignment[x, y, 1] = motion_vector[x // 2, y // 2, 1] * 2
  *         for t in prange(comp_input.shape[0], nogil=True):             # <<<<<<<<<<<<<<
@@ -18902,7 +20964,7 @@ __pyx_t_12 = __pyx_v_lvl;
         __Pyx_FastGIL_Remember();
         #endif
         /*try:*/ {
-          if (unlikely(!__pyx_v_comp_input.memview)) { __Pyx_RaiseUnboundMemoryviewSliceNogil("comp_input"); __PYX_ERR(0, 107, __pyx_L13_error) }
+          if (unlikely(!__pyx_v_comp_input.memview)) { __Pyx_RaiseUnboundMemoryviewSliceNogil("comp_input"); __PYX_ERR(0, 138, __pyx_L23_error) }
           __pyx_t_25 = (__pyx_v_comp_input.shape[0]);
           {
               #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
@@ -18915,7 +20977,7 @@ __pyx_t_12 = __pyx_v_lvl;
               if (__pyx_t_27 > 0)
               {
                   #ifdef _OPENMP
-                  #pragma omp parallel private(__pyx_t_12, __pyx_t_13, __pyx_t_15, __pyx_t_16, __pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_22, __pyx_t_23, __pyx_t_24, __pyx_t_28, __pyx_t_29, __pyx_t_30, __pyx_t_31, __pyx_t_32, __pyx_t_33, __pyx_t_34, __pyx_t_35)
+                  #pragma omp parallel private(__pyx_t_13, __pyx_t_14, __pyx_t_15, __pyx_t_16, __pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_22, __pyx_t_23, __pyx_t_24, __pyx_t_28, __pyx_t_29, __pyx_t_30, __pyx_t_31, __pyx_t_32, __pyx_t_33, __pyx_t_34, __pyx_t_35)
                   #endif /* _OPENMP */
                   {
                       #ifdef _OPENMP
@@ -18928,47 +20990,47 @@ __pyx_t_12 = __pyx_v_lvl;
                               __pyx_v_x = ((int)0xbad0bad0);
                               __pyx_v_y = ((int)0xbad0bad0);
 
-                              /* "hdrplus.pyx":108
+                              /* "hdrplus.pyx":139
  *                     pre_alignment[x, y, 1] = motion_vector[x // 2, y // 2, 1] * 2
  *         for t in prange(comp_input.shape[0], nogil=True):
  *             for x in range(pyr_h[lvl]):             # <<<<<<<<<<<<<<
  *                 for y in range(pyr_w[lvl]):
  *                     comp_output[t, lvl, x, y] = comp_input[t, lvl, motion_vector[x, y, 0] + x, motion_vector[x, y, 1] + y]
  */
-                              __pyx_t_13 = __pyx_v_lvl;
-                              __pyx_t_15 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_13 * __pyx_v_pyr_h.strides[0]) )));
-                              __pyx_t_16 = __pyx_t_15;
-                              for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
-                                __pyx_v_x = __pyx_t_17;
+                              __pyx_t_14 = __pyx_v_lvl;
+                              __pyx_t_17 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_h.data + __pyx_t_14 * __pyx_v_pyr_h.strides[0]) )));
+                              __pyx_t_16 = __pyx_t_17;
+                              for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_16; __pyx_t_15+=1) {
+                                __pyx_v_x = __pyx_t_15;
 
-                                /* "hdrplus.pyx":109
+                                /* "hdrplus.pyx":140
  *         for t in prange(comp_input.shape[0], nogil=True):
  *             for x in range(pyr_h[lvl]):
  *                 for y in range(pyr_w[lvl]):             # <<<<<<<<<<<<<<
  *                     comp_output[t, lvl, x, y] = comp_input[t, lvl, motion_vector[x, y, 0] + x, motion_vector[x, y, 1] + y]
  *         memcpy(&comp_output[err_idx, lvl, 0, 0], &err_map[0, 0], im_h * im_w * sizeof(float))
  */
-                                __pyx_t_13 = __pyx_v_lvl;
-                                __pyx_t_18 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_13 * __pyx_v_pyr_w.strides[0]) )));
+                                __pyx_t_14 = __pyx_v_lvl;
+                                __pyx_t_18 = (*((int *) ( /* dim=0 */ (__pyx_v_pyr_w.data + __pyx_t_14 * __pyx_v_pyr_w.strides[0]) )));
                                 __pyx_t_19 = __pyx_t_18;
                                 for (__pyx_t_20 = 0; __pyx_t_20 < __pyx_t_19; __pyx_t_20+=1) {
                                   __pyx_v_y = __pyx_t_20;
 
-                                  /* "hdrplus.pyx":110
+                                  /* "hdrplus.pyx":141
  *             for x in range(pyr_h[lvl]):
  *                 for y in range(pyr_w[lvl]):
  *                     comp_output[t, lvl, x, y] = comp_input[t, lvl, motion_vector[x, y, 0] + x, motion_vector[x, y, 1] + y]             # <<<<<<<<<<<<<<
  *         memcpy(&comp_output[err_idx, lvl, 0, 0], &err_map[0, 0], im_h * im_w * sizeof(float))
  */
-                                  __pyx_t_13 = __pyx_v_x;
-                                  __pyx_t_12 = __pyx_v_y;
+                                  __pyx_t_14 = __pyx_v_x;
+                                  __pyx_t_13 = __pyx_v_y;
                                   __pyx_t_21 = 0;
                                   __pyx_t_22 = __pyx_v_x;
                                   __pyx_t_23 = __pyx_v_y;
                                   __pyx_t_24 = 1;
                                   __pyx_t_28 = __pyx_v_t;
                                   __pyx_t_29 = __pyx_v_lvl;
-                                  __pyx_t_30 = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_13 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_12 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[2]) ))) + __pyx_v_x);
+                                  __pyx_t_30 = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_14 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_13 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_21 * __pyx_v_motion_vector.strides[2]) ))) + __pyx_v_x);
                                   __pyx_t_31 = ((*((int *) ( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_motion_vector.data + __pyx_t_22 * __pyx_v_motion_vector.strides[0]) ) + __pyx_t_23 * __pyx_v_motion_vector.strides[1]) ) + __pyx_t_24 * __pyx_v_motion_vector.strides[2]) ))) + __pyx_v_y);
                                   __pyx_t_32 = __pyx_v_t;
                                   __pyx_t_33 = __pyx_v_lvl;
@@ -18990,7 +21052,7 @@ __pyx_t_12 = __pyx_v_lvl;
           #endif
         }
 
-        /* "hdrplus.pyx":107
+        /* "hdrplus.pyx":138
  *                     pre_alignment[x, y, 0] = motion_vector[x // 2, y // 2, 0] * 2
  *                     pre_alignment[x, y, 1] = motion_vector[x // 2, y // 2, 1] * 2
  *         for t in prange(comp_input.shape[0], nogil=True):             # <<<<<<<<<<<<<<
@@ -19003,20 +21065,20 @@ __pyx_t_12 = __pyx_v_lvl;
             __Pyx_FastGIL_Forget();
             Py_BLOCK_THREADS
             #endif
-            goto __pyx_L14;
+            goto __pyx_L24;
           }
-          __pyx_L13_error: {
+          __pyx_L23_error: {
             #ifdef WITH_THREAD
             __Pyx_FastGIL_Forget();
             Py_BLOCK_THREADS
             #endif
             goto __pyx_L1_error;
           }
-          __pyx_L14:;
+          __pyx_L24:;
         }
     }
 
-    /* "hdrplus.pyx":111
+    /* "hdrplus.pyx":142
  *                 for y in range(pyr_w[lvl]):
  *                     comp_output[t, lvl, x, y] = comp_input[t, lvl, motion_vector[x, y, 0] + x, motion_vector[x, y, 1] + y]
  *         memcpy(&comp_output[err_idx, lvl, 0, 0], &err_map[0, 0], im_h * im_w * sizeof(float))             # <<<<<<<<<<<<<<
@@ -19025,12 +21087,12 @@ __pyx_t_12 = __pyx_v_lvl;
     __pyx_t_23 = __pyx_v_lvl;
     __pyx_t_22 = 0;
     __pyx_t_21 = 0;
-    __pyx_t_12 = 0;
     __pyx_t_13 = 0;
-    (void)(memcpy((&(*((float *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_output.data + __pyx_t_24 * __pyx_v_comp_output.strides[0]) ) + __pyx_t_23 * __pyx_v_comp_output.strides[1]) ) + __pyx_t_22 * __pyx_v_comp_output.strides[2]) ) + __pyx_t_21 * __pyx_v_comp_output.strides[3]) )))), (&(*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_err_map.data + __pyx_t_12 * __pyx_v_err_map.strides[0]) ) + __pyx_t_13 * __pyx_v_err_map.strides[1]) )))), ((__pyx_v_im_h * __pyx_v_im_w) * (sizeof(float)))));
+    __pyx_t_14 = 0;
+    (void)(memcpy((&(*((float *) ( /* dim=3 */ (( /* dim=2 */ (( /* dim=1 */ (( /* dim=0 */ (__pyx_v_comp_output.data + __pyx_t_24 * __pyx_v_comp_output.strides[0]) ) + __pyx_t_23 * __pyx_v_comp_output.strides[1]) ) + __pyx_t_22 * __pyx_v_comp_output.strides[2]) ) + __pyx_t_21 * __pyx_v_comp_output.strides[3]) )))), (&(*((float *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_err_map.data + __pyx_t_13 * __pyx_v_err_map.strides[0]) ) + __pyx_t_14 * __pyx_v_err_map.strides[1]) )))), ((__pyx_v_im_h * __pyx_v_im_w) * (sizeof(float)))));
   }
 
-  /* "hdrplus.pyx":87
+  /* "hdrplus.pyx":112
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef void align_and_merge_2im(float[:,:,:] comp_feature, float[:,:,:] ref_feature, float[:,:,:,:] comp_input, float[:,:,:,:] comp_output, cython.int[:] pyr_h, cython.int[:] pyr_w):             # <<<<<<<<<<<<<<
@@ -19048,7 +21110,7 @@ __pyx_t_12 = __pyx_v_lvl;
   __Pyx_XDECREF(__pyx_t_5);
   __PYX_XCLEAR_MEMVIEW(&__pyx_t_6, 1);
   __PYX_XCLEAR_MEMVIEW(&__pyx_t_7, 1);
-  __PYX_XCLEAR_MEMVIEW(&__pyx_t_11, 1);
+  __PYX_XCLEAR_MEMVIEW(&__pyx_t_12, 1);
   __Pyx_AddTraceback("hdrplus.align_and_merge_2im", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_pre_alignment, 1);
@@ -19058,15 +21120,15 @@ __pyx_t_12 = __pyx_v_lvl;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_7hdrplus_3align_and_merge_2im(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_7hdrplus_7align_and_merge_2im(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_7hdrplus_3align_and_merge_2im = {"align_and_merge_2im", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7hdrplus_3align_and_merge_2im, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_7hdrplus_3align_and_merge_2im(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_7hdrplus_7align_and_merge_2im = {"align_and_merge_2im", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_7hdrplus_7align_and_merge_2im, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_7hdrplus_7align_and_merge_2im(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19125,7 +21187,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -19133,9 +21195,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 1); __PYX_ERR(0, 87, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 1); __PYX_ERR(0, 112, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -19143,9 +21205,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[2]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 2); __PYX_ERR(0, 87, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 2); __PYX_ERR(0, 112, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -19153,9 +21215,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[3]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 3); __PYX_ERR(0, 87, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 3); __PYX_ERR(0, 112, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
@@ -19163,9 +21225,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[4]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 4); __PYX_ERR(0, 87, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 4); __PYX_ERR(0, 112, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
@@ -19173,14 +21235,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[5]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 5); __PYX_ERR(0, 87, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, 5); __PYX_ERR(0, 112, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "align_and_merge_2im") < 0)) __PYX_ERR(0, 87, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "align_and_merge_2im") < 0)) __PYX_ERR(0, 112, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 6)) {
       goto __pyx_L5_argtuple_error;
@@ -19192,16 +21254,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       values[4] = __Pyx_Arg_FASTCALL(__pyx_args, 4);
       values[5] = __Pyx_Arg_FASTCALL(__pyx_args, 5);
     }
-    __pyx_v_comp_feature = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_feature.memview)) __PYX_ERR(0, 87, __pyx_L3_error)
-    __pyx_v_ref_feature = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ref_feature.memview)) __PYX_ERR(0, 87, __pyx_L3_error)
-    __pyx_v_comp_input = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_float(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_input.memview)) __PYX_ERR(0, 87, __pyx_L3_error)
-    __pyx_v_comp_output = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_float(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_output.memview)) __PYX_ERR(0, 87, __pyx_L3_error)
-    __pyx_v_pyr_h = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pyr_h.memview)) __PYX_ERR(0, 87, __pyx_L3_error)
-    __pyx_v_pyr_w = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pyr_w.memview)) __PYX_ERR(0, 87, __pyx_L3_error)
+    __pyx_v_comp_feature = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_feature.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
+    __pyx_v_ref_feature = __Pyx_PyObject_to_MemoryviewSlice_dsdsds_float(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_ref_feature.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
+    __pyx_v_comp_input = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_float(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_input.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
+    __pyx_v_comp_output = __Pyx_PyObject_to_MemoryviewSlice_dsdsdsds_float(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_comp_output.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
+    __pyx_v_pyr_h = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pyr_h.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
+    __pyx_v_pyr_w = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_pyr_w.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, __pyx_nargs); __PYX_ERR(0, 87, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("align_and_merge_2im", 1, 6, 6, __pyx_nargs); __PYX_ERR(0, 112, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -19221,7 +21283,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_7hdrplus_2align_and_merge_2im(__pyx_self, __pyx_v_comp_feature, __pyx_v_ref_feature, __pyx_v_comp_input, __pyx_v_comp_output, __pyx_v_pyr_h, __pyx_v_pyr_w);
+  __pyx_r = __pyx_pf_7hdrplus_6align_and_merge_2im(__pyx_self, __pyx_v_comp_feature, __pyx_v_ref_feature, __pyx_v_comp_input, __pyx_v_comp_output, __pyx_v_pyr_h, __pyx_v_pyr_w);
 
   /* function exit code */
   __PYX_XCLEAR_MEMVIEW(&__pyx_v_comp_feature, 1);
@@ -19240,7 +21302,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_7hdrplus_2align_and_merge_2im(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_comp_feature, __Pyx_memviewslice __pyx_v_ref_feature, __Pyx_memviewslice __pyx_v_comp_input, __Pyx_memviewslice __pyx_v_comp_output, __Pyx_memviewslice __pyx_v_pyr_h, __Pyx_memviewslice __pyx_v_pyr_w) {
+static PyObject *__pyx_pf_7hdrplus_6align_and_merge_2im(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_comp_feature, __Pyx_memviewslice __pyx_v_ref_feature, __Pyx_memviewslice __pyx_v_comp_input, __Pyx_memviewslice __pyx_v_comp_output, __Pyx_memviewslice __pyx_v_pyr_h, __Pyx_memviewslice __pyx_v_pyr_w) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -19249,14 +21311,14 @@ static PyObject *__pyx_pf_7hdrplus_2align_and_merge_2im(CYTHON_UNUSED PyObject *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("align_and_merge_2im", 1);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_comp_feature.memview)) { __Pyx_RaiseUnboundLocalError("comp_feature"); __PYX_ERR(0, 87, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_ref_feature.memview)) { __Pyx_RaiseUnboundLocalError("ref_feature"); __PYX_ERR(0, 87, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_comp_input.memview)) { __Pyx_RaiseUnboundLocalError("comp_input"); __PYX_ERR(0, 87, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_comp_output.memview)) { __Pyx_RaiseUnboundLocalError("comp_output"); __PYX_ERR(0, 87, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_pyr_h.memview)) { __Pyx_RaiseUnboundLocalError("pyr_h"); __PYX_ERR(0, 87, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_pyr_w.memview)) { __Pyx_RaiseUnboundLocalError("pyr_w"); __PYX_ERR(0, 87, __pyx_L1_error) }
-  __pyx_f_7hdrplus_align_and_merge_2im(__pyx_v_comp_feature, __pyx_v_ref_feature, __pyx_v_comp_input, __pyx_v_comp_output, __pyx_v_pyr_h, __pyx_v_pyr_w, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  if (unlikely(!__pyx_v_comp_feature.memview)) { __Pyx_RaiseUnboundLocalError("comp_feature"); __PYX_ERR(0, 112, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_ref_feature.memview)) { __Pyx_RaiseUnboundLocalError("ref_feature"); __PYX_ERR(0, 112, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_comp_input.memview)) { __Pyx_RaiseUnboundLocalError("comp_input"); __PYX_ERR(0, 112, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_comp_output.memview)) { __Pyx_RaiseUnboundLocalError("comp_output"); __PYX_ERR(0, 112, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_pyr_h.memview)) { __Pyx_RaiseUnboundLocalError("pyr_h"); __PYX_ERR(0, 112, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_pyr_w.memview)) { __Pyx_RaiseUnboundLocalError("pyr_w"); __PYX_ERR(0, 112, __pyx_L1_error) }
+  __pyx_f_7hdrplus_align_and_merge_2im(__pyx_v_comp_feature, __pyx_v_ref_feature, __pyx_v_comp_input, __pyx_v_comp_output, __pyx_v_pyr_h, __pyx_v_pyr_w, 0); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 112, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -20267,13 +22329,15 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
     {&__pyx_n_s_View_MemoryView, __pyx_k_View_MemoryView, sizeof(__pyx_k_View_MemoryView), 0, 0, 1, 1},
     {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
-    {&__pyx_n_s__24, __pyx_k__24, sizeof(__pyx_k__24), 0, 0, 1, 1},
+    {&__pyx_n_s__26, __pyx_k__26, sizeof(__pyx_k__26), 0, 0, 1, 1},
     {&__pyx_n_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 1},
     {&__pyx_kp_u__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0, 0},
     {&__pyx_kp_u__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0, 0},
     {&__pyx_n_s_abc, __pyx_k_abc, sizeof(__pyx_k_abc), 0, 0, 1, 1},
     {&__pyx_n_s_align_and_merge_2im, __pyx_k_align_and_merge_2im, sizeof(__pyx_k_align_and_merge_2im), 0, 0, 1, 1},
+    {&__pyx_n_s_align_image_cosin, __pyx_k_align_image_cosin, sizeof(__pyx_k_align_image_cosin), 0, 0, 1, 1},
     {&__pyx_n_s_align_image_l1, __pyx_k_align_image_l1, sizeof(__pyx_k_align_image_l1), 0, 0, 1, 1},
+    {&__pyx_n_s_align_image_l2, __pyx_k_align_image_l2, sizeof(__pyx_k_align_image_l2), 0, 0, 1, 1},
     {&__pyx_n_s_allocate_buffer, __pyx_k_allocate_buffer, sizeof(__pyx_k_allocate_buffer), 0, 0, 1, 1},
     {&__pyx_kp_u_and, __pyx_k_and, sizeof(__pyx_k_and), 0, 1, 0, 0},
     {&__pyx_n_s_asyncio_coroutines, __pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 0, 1, 1},
@@ -20384,7 +22448,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 27, __pyx_L1_error)
   __pyx_builtin___import__ = __Pyx_GetBuiltinName(__pyx_n_s_import); if (!__pyx_builtin___import__) __PYX_ERR(1, 100, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 141, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 156, __pyx_L1_error)
@@ -20544,26 +22608,44 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "hdrplus.pyx":9
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
- * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
- *     cdef int stride = tile_size
+ * cpdef void align_image_cosin(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
  *     cdef int num_tiles_x = (h - tile_size) // stride + 1
  */
   __pyx_tuple__20 = PyTuple_Pack(9, __pyx_n_s_ref_im, __pyx_n_s_comp_im, __pyx_n_s_pre_alignment, __pyx_n_s_search_radius, __pyx_n_s_tile_size, __pyx_n_s_h, __pyx_n_s_w, __pyx_n_s_motion_vector, __pyx_n_s_err_map); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(9, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hdrplus_pyx, __pyx_n_s_align_image_l1, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(9, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hdrplus_pyx, __pyx_n_s_align_image_cosin, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "hdrplus.pyx":87
+  /* "hdrplus.pyx":46
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ */
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(9, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hdrplus_pyx, __pyx_n_s_align_image_l1, 46, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 46, __pyx_L1_error)
+
+  /* "hdrplus.pyx":80
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * cpdef void align_image_l2(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ */
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(9, 0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hdrplus_pyx, __pyx_n_s_align_image_l2, 80, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 80, __pyx_L1_error)
+
+  /* "hdrplus.pyx":112
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef void align_and_merge_2im(float[:,:,:] comp_feature, float[:,:,:] ref_feature, float[:,:,:,:] comp_input, float[:,:,:,:] comp_output, cython.int[:] pyr_h, cython.int[:] pyr_w):             # <<<<<<<<<<<<<<
  *     # ref_feature: level, height, width
  *     # comp_feature: level, height, width
  */
-  __pyx_tuple__22 = PyTuple_Pack(6, __pyx_n_s_comp_feature, __pyx_n_s_ref_feature, __pyx_n_s_comp_input, __pyx_n_s_comp_output, __pyx_n_s_pyr_h, __pyx_n_s_pyr_w); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__22);
-  __Pyx_GIVEREF(__pyx_tuple__22);
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hdrplus_pyx, __pyx_n_s_align_and_merge_2im, 87, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(6, __pyx_n_s_comp_feature, __pyx_n_s_ref_feature, __pyx_n_s_comp_input, __pyx_n_s_comp_output, __pyx_n_s_pyr_h, __pyx_n_s_pyr_w); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 112, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__24);
+  __Pyx_GIVEREF(__pyx_tuple__24);
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(6, 0, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_hdrplus_pyx, __pyx_n_s_align_and_merge_2im, 112, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -21623,7 +23705,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "hdrplus.pyx":5
- * from libc.math cimport abs
+ * from libc.math cimport abs, sqrt
  * from libc.string cimport memcpy
  * import numpy as np             # <<<<<<<<<<<<<<
  * import cv2
@@ -21649,31 +23731,55 @@ if (!__Pyx_RefNanny) {
   /* "hdrplus.pyx":9
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
+ * cpdef void align_image_cosin(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ */
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7hdrplus_1align_image_cosin, 0, __pyx_n_s_align_image_cosin, NULL, __pyx_n_s_hdrplus, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_align_image_cosin, __pyx_t_7) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "hdrplus.pyx":46
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
  * cpdef void align_image_l1(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
  *     cdef int stride = tile_size
  *     cdef int num_tiles_x = (h - tile_size) // stride + 1
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7hdrplus_1align_image_l1, 0, __pyx_n_s_align_image_l1, NULL, __pyx_n_s_hdrplus, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7hdrplus_3align_image_l1, 0, __pyx_n_s_align_image_l1, NULL, __pyx_n_s_hdrplus, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_align_image_l1, __pyx_t_7) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_align_image_l1, __pyx_t_7) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "hdrplus.pyx":87
+  /* "hdrplus.pyx":80
+ * @cython.boundscheck(False)
+ * @cython.wraparound(False)
+ * cpdef void align_image_l2(float[:,:] ref_im, float[:,:] comp_im, cython.int[:,:,:] pre_alignment, cython.int search_radius, cython.int tile_size, cython.int h, cython.int w, cython.int[:,:,:] motion_vector, float[:,:] err_map) nogil:             # <<<<<<<<<<<<<<
+ *     cdef int stride = tile_size // 2
+ *     cdef int num_tiles_x = (h - tile_size) // stride + 1
+ */
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7hdrplus_5align_image_l2, 0, __pyx_n_s_align_image_l2, NULL, __pyx_n_s_hdrplus, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_align_image_l2, __pyx_t_7) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "hdrplus.pyx":112
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef void align_and_merge_2im(float[:,:,:] comp_feature, float[:,:,:] ref_feature, float[:,:,:,:] comp_input, float[:,:,:,:] comp_output, cython.int[:] pyr_h, cython.int[:] pyr_w):             # <<<<<<<<<<<<<<
  *     # ref_feature: level, height, width
  *     # comp_feature: level, height, width
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7hdrplus_3align_and_merge_2im, 0, __pyx_n_s_align_and_merge_2im, NULL, __pyx_n_s_hdrplus, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_7hdrplus_7align_and_merge_2im, 0, __pyx_n_s_align_and_merge_2im, NULL, __pyx_n_s_hdrplus, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_align_and_merge_2im, __pyx_t_7) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_align_and_merge_2im, __pyx_t_7) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "hdrplus.pyx":1
  * from cython.parallel cimport prange             # <<<<<<<<<<<<<<
  * cimport cython
- * from libc.math cimport abs
+ * from libc.math cimport abs, sqrt
  */
   __pyx_t_7 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
@@ -28421,7 +30527,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__24);
+        name = __Pyx_NewRef(__pyx_n_s__26);
     }
     return name;
 }
